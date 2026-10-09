@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #171717;
+  --color-ivory: #faf8f4;
+  --color-sand: #e7ded1;
+  --color-wood: #8a6f55;
+  --color-gold: #c5a46d;
+  --font-sans: var(--font-outfit), "Segoe UI", sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #faf8f4;
+  color: #171717;
+}
+
+::selection {
+  background: #e7ded1;
+  color: #171717;
+}
+
+:focus-visible {
+  outline: 2px solid #c5a46d;
+  outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+@keyframes luma-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: luma-rise 0.8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise {
+    animation: none;
+  }
+}
