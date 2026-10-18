@@ -42,8 +42,12 @@ export async function GET(request: NextRequest) {
     try {
       const tokens = await exchangeAlibabaAuthorizationCode(params.get("code")!);
       // Bind storage to the authenticated Alibaba account, never to a browser-supplied ID.
-      const buyerId = tokens.user_id;
-      if (!buyerId || !/^[a-zA-Z0-9_-]{1,120}$/.test(buyerId)) {
+      // Alibaba can identify the authorized account with user_id or havana_id.
+      // Never derive the storage key from the access token or a request parameter.
+      const buyerId = [tokens.user_id, tokens.havana_id].find(
+        (id) => typeof id === "string" && /^[a-zA-Z0-9_-]{1,120}$/.test(id),
+      );
+      if (!buyerId) {
         return reply("Alibaba n'a pas fourni d'identifiant de compte exploitable. Aucun jeton enregistré.", 503);
       }
       await saveAlibabaTokensEncrypted("buyer_" + buyerId, tokens);
