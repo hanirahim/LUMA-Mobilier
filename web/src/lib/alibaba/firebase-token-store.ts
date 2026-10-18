@@ -112,3 +112,22 @@ export async function readAlibabaTokensEncrypted(accountId: string): Promise<Ali
   ]).toString("utf8");
   return JSON.parse(clear) as AlibabaTokenResponse;
 }
+
+
+/**
+ * Non-destructive server-only connectivity probe.
+ * Reads a reserved diagnostic path; never reads or returns Alibaba tokens.
+ * Do not expose this function through a public unauthenticated API route.
+ */
+export async function verifyFirebaseConnection(): Promise<boolean> {
+  const c = config();
+  const bearer = await firebaseAccessToken(c);
+  const response = await fetch(c.databaseUrl + "/server_secrets/connection_probe.json", {
+    method: "GET",
+    headers: { Authorization: "Bearer " + bearer },
+    cache: "no-store",
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!response.ok) throw new Error("Firebase connectivity check failed");
+  return true;
+}
