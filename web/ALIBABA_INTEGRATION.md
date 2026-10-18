@@ -17,3 +17,12 @@ This is a **non-operational scaffold** on the `integration-alibaba` branch. It d
 - `.env.alibaba.example`: names of private environment variables.
 
 No official endpoint or signature algorithm is assumed before access is granted.
+
+## OAuth implementation status (October 2026)
+- Alibaba API permission group `ICBU Dropshipping Solution Api Group` was shown active for App Key `504822`; this is **not** a usable OAuth token.
+- The Vercel preview callback `/api/alibaba/callback` is reachable, but authorization and token exchange remain disabled.
+- The branch has a guarded `/api/alibaba/authorize` route which requires `ALIBABA_OAUTH_AUTHORIZE_URL` and `ALIBABA_OAUTH_REDIRECT_URI`; **do not configure or expose this route until the exact Alibaba authorization URL, query parameter names, and callback registration are verified against official docs**. The current query parameters are provisional.
+- Official Alibaba API reference documents `GET/POST /auth/token/create` with required `code`. The API call must use Alibaba's documented signing/authentication rules; do not send the App Secret in query strings or client-side JavaScript.
+- Before exchanging codes: implement persistent encrypted token storage, refresh logic, single-use state protection, error handling, and authorized account binding. OAuth tokens must not be committed to GitHub or shown in screenshots.
+- Preview environment variables for branch `integration-alibaba` are not automatically available to the production `main` deployment.
+- Production launch must wait for actual API product tests, supplier order safeguards, and proper durable persistence.
