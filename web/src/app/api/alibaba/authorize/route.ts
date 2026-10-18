@@ -6,12 +6,12 @@ export const dynamic = "force-dynamic";
 
 /**
  * Starts Alibaba OAuth only when the official authorization URL is configured.
- * Set ALIBABA_OAUTH_AUTHORIZE_URL to the verified Alibaba authorization endpoint.
+ * Uses the documented Buyer ISV authorization endpoint.
  * No secret, access token, or authorization code is sent to the browser.
  */
 export async function GET(request: Request) {
   const appKey = process.env.ALIBABA_APP_KEY?.trim();
-  const authorizeUrl = process.env.ALIBABA_OAUTH_AUTHORIZE_URL?.trim();
+  const authorizeUrl = "https://openapi-auth.alibaba.com/oauth/authorize";
   const callbackUrl = process.env.ALIBABA_OAUTH_REDIRECT_URI?.trim();
   if (!appKey || !authorizeUrl || !callbackUrl) {
     return NextResponse.json(
@@ -25,7 +25,7 @@ export async function GET(request: Request) {
     const callback = new URL(callbackUrl);
     if (destination.protocol !== "https:" || callback.protocol !== "https:" ||
         callback.pathname !== "/api/alibaba/callback" ||
-        callback.origin !== new URL(request.url).origin) throw new Error("Invalid OAuth URLs");
+        callback.origin !== new URL(request.url).origin || destination.hostname !== "openapi-auth.alibaba.com" || destination.pathname !== "/oauth/authorize") throw new Error("Invalid OAuth URLs");
   } catch {
     return NextResponse.json({ integration: "alibaba", message: "Configuration OAuth invalide.", authorizationEnabled: false }, { status: 503 });
   }
