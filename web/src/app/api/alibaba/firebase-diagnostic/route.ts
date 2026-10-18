@@ -10,6 +10,13 @@ export const dynamic = "force-dynamic";
  * Set FIREBASE_DIAGNOSTIC_TOKEN to a unique random secret in Vercel Preview.
  * Never put the diagnostic secret in a URL or send it in chat.
  */
+export async function GET() {
+  return NextResponse.json(
+    { ok: false, message: "Diagnostic protégé : utilisez POST avec le jeton dans l’en-tête x-firebase-diagnostic-token. Aucun test Firebase n’a été exécuté." },
+    { status: 200, headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Allow": "GET, POST" } },
+  );
+}
+
 export async function POST(request: NextRequest) {
   const headers = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" };
   if (process.env.VERCEL_ENV !== "preview") {
