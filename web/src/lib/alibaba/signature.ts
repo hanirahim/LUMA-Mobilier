@@ -25,3 +25,21 @@ export function signAlibabaRequest(
     .digest("hex")
     .toUpperCase();
 }
+
+
+/** Build required system parameters and sign them for a server-side API call. */
+export function buildAlibabaSignedParams(
+  apiPath: string,
+  businessParams: Record<string, string>,
+  credentials: { appKey: string; appSecret: string },
+  now: Date = new Date(),
+): Record<string, string> {
+  if (!credentials.appKey || !credentials.appSecret) throw new Error("Alibaba credentials missing");
+  const params = {
+    ...businessParams,
+    app_key: credentials.appKey,
+    timestamp: String(now.getTime()),
+    sign_method: "sha256",
+  };
+  return { ...params, sign: signAlibabaRequest(apiPath, params, credentials.appSecret) };
+}
