@@ -40,7 +40,6 @@ export async function GET(request: NextRequest) {
       return reply("Configuration du retour OAuth invalide.", 503);
     }
     try {
-      const tokens = await exchangeAlibabaAuthorizationCode(params.get("code")!);
       // Single-buyer Preview integration: OAuth state ties the callback to the
       // browser that initiated authorization. Alibaba does not guarantee an
       // account identifier in its token response. Never derive one from a
@@ -50,6 +49,7 @@ export async function GET(request: NextRequest) {
       if (existing) {
         return reply("Un compte Alibaba est déjà enregistré sur cette version de test. Aucun jeton remplacé.", 409);
       }
+      const tokens = await exchangeAlibabaAuthorizationCode(params.get("code")!);
       await saveAlibabaTokensEncrypted(storageKey, tokens);
       return reply("Compte Alibaba autorisé. Jetons enregistrés de façon chiffrée.", 200);
     } catch {
