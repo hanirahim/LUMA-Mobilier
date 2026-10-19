@@ -1,6 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { verifyFirebaseConnection, readAlibabaTokensEncrypted } from "@/lib/alibaba/firebase-token-store";
+import { searchAlibabaProductsPreview } from "@/lib/alibaba/client";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,7 +38,31 @@ export async function POST(request: NextRequest) {
     const expiryMs = Number.isFinite(expiryNumber) && expiryNumber > 0
       ? (expiryNumber < 1e12 ? expiryNumber * 1000 : expiryNumber) : NaN;
     const expiryStatus = !Number.isFinite(expiryMs) ? "unknown" : expiryMs > Date.now() ? "not_expired" : "expired";
-    return NextResponse.json({ ok: true, message: "Jeton Alibaba présent et déchiffrable", expiryStatus, refreshTokenPresent: Boolean(stored.refresh_token), apiConnectionVerified: false }, { headers });
+    // Read-only live API probe. Never return product data or Alibaba tokens.
+    // Only an authenticated diagnostic request can trigger it.
+    let apiConnectionVerified = false;
+    let apiStatus = "not_tested";
+    try {
+      const result: unknown = await searchAlibabaProductsPreview("furniture");
+      if (result && typeof result === "object") {
+        const outer = result as Record<string, unknown>;
+        const nested = outer.result && typeof outer.result === "object"
+          ? outer.result as Record<string, unknown> : null;
+        const code = nested?.code ?? outer.code;
+        const resultCode = nested?.result_code;
+        apiConnectionVerified = String(code) === "200" || String(resultCode) === "200";
+        apiStatus = apiConnectionVerified ? "accepted" : "api_rejected";
+      } else {
+        apiStatus = "invalid_response";
+      }
+    } catch {
+      apiStatus = "request_failed";
+    }
+    return NextResponse.json({
+      ok: true, message: "Jeton Alibaba présent et déchiffrable",
+      expiryStatus, refreshTokenPresent: Boolean(stored.refresh_token),
+      apiConnectionVerified, apiStatus,
+    }, { headers });
   } catch {
     return NextResponse.json({ ok: false, message: "Firebase connection failed" }, { status: 503, headers });
   }
