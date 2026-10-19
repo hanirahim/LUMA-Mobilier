@@ -1,7 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { exchangeAlibabaAuthorizationCode } from "@/lib/alibaba/token";
-import { saveAlibabaTokensEncrypted } from "@/lib/alibaba/firebase-token-store";
+import { readAlibabaTokensEncrypted, saveAlibabaTokensEncrypted } from "@/lib/alibaba/firebase-token-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -41,16 +41,16 @@ export async function GET(request: NextRequest) {
     }
     try {
       const tokens = await exchangeAlibabaAuthorizationCode(params.get("code")!);
-      // Bind storage to the authenticated Alibaba account, never to a browser-supplied ID.
-      // Alibaba can identify the authorized account with user_id or havana_id.
-      // Never derive the storage key from the access token or a request parameter.
-      const buyerId = [tokens.user_id, tokens.havana_id].find(
-        (id) => typeof id === "string" && /^[a-zA-Z0-9_-]{1,120}$/.test(id),
-      );
-      if (!buyerId) {
-        return reply("Alibaba n'a pas fourni d'identifiant de compte exploitable. Aucun jeton enregistré.", 503);
+      // Single-buyer Preview integration: OAuth state ties the callback to the
+      // browser that initiated authorization. Alibaba does not guarantee an
+      // account identifier in its token response. Never derive one from a
+      // browser parameter or the token itself.
+      const storageKey = "preview_authorized_buyer";
+      const existing = await readAlibabaTokensEncrypted(storageKey);
+      if (existing) {
+        return reply("Un compte Alibaba est déjà enregistré sur cette version de test. Aucun jeton remplacé.", 409);
       }
-      await saveAlibabaTokensEncrypted("buyer_" + buyerId, tokens);
+      await saveAlibabaTokensEncrypted(storageKey, tokens);
       return reply("Compte Alibaba autorisé. Jetons enregistrés de façon chiffrée.", 200);
     } catch {
       // Never expose authorization codes, tokens, provider payloads or secrets.
