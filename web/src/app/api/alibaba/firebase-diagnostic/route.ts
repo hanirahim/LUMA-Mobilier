@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
-import { verifyFirebaseConnection } from "@/lib/alibaba/firebase-token-store";
+import { verifyFirebaseConnection, readAlibabaTokensEncrypted } from "@/lib/alibaba/firebase-token-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -30,6 +30,8 @@ export async function POST(request: NextRequest) {
   }
   try {
     await verifyFirebaseConnection();
+    const stored = await readAlibabaTokensEncrypted("preview_authorized_buyer");
+    if (!stored?.access_token) return NextResponse.json({ ok: false, message: "Jeton Alibaba absent" }, { status: 404, headers });
     return NextResponse.json({ ok: true, message: "Firebase accessible" }, { headers });
   } catch {
     return NextResponse.json({ ok: false, message: "Firebase connection failed" }, { status: 503, headers });
