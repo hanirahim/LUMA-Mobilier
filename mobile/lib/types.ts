@@ -31,9 +31,18 @@ export type Product = {
   source?: {
     marketplace: "Alibaba";
     url: string;
+    productId?: string;
+    subject?: string;
     wholesale: string;
     purchase?: number;
     transport?: number;
+    moq?: number;
+    attributes?: { name: string; value: string }[];
+    supplier?: {
+      name: string;
+      storeUrl?: string;
+      origin?: string;
+    };
   };
 };
 

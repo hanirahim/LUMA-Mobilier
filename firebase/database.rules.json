@@ -1,0 +1,33 @@
+{
+  "rules": {
+    "catalog": {
+      ".read": true,
+      ".write": false,
+      "products": {
+        ".indexOn": ["category", "price", "availability", "slug"]
+      },
+      "reviews": {
+        ".indexOn": ["productId", "rating"]
+      }
+    },
+    "atelier": {
+      ".read": "auth != null && auth.token.admin === true",
+      ".write": "auth != null && auth.token.admin === true",
+      "orders": {
+        ".indexOn": ["email", "status", "createdAt"]
+      },
+      "quotes": {
+        ".indexOn": ["email", "status", "createdAt"]
+      },
+      "rentals": {
+        ".indexOn": ["email", "status", "createdAt"]
+      },
+      "reservations": {
+        ".indexOn": ["email", "status", "productId"]
+      },
+      "reviews": {
+        ".indexOn": ["productId", "status"]
+      }
+    }
+  }
+}

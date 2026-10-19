@@ -1,0 +1,1071 @@
+{
+  "catalog": {
+    "products": {
+      "chaise-velours-or": {
+        "id": "chaise-velours-or",
+        "slug": "chaise-velours-or",
+        "name": "Chaise Velours Or",
+        "category": "chaises",
+        "price": 320,
+        "rentPerDay": 22,
+        "description": "Chaise de salle à manger moderne en velours, coussin rembourré, pieds en acier inoxydable doré, design de luxe pour hôtel, restaurant, maison et café.",
+        "details": "Fiche publiée : Chaise de salle à manger moderne en velours, coussin rembourré, pieds en acier inoxydable doré, design de luxe pour hôtel, restaurant, maison et café. Caractéristique : Ergonomique Utilisation spécifique : Chaise de salle à manger Matériau : Velours Domaine dapplication : Salle à manger Style de conception : Moderne Aspect visuel : Moderne Lieu dorigine : Guangdong, China Jambes : Métal Garantie : 2 Matériau de rembourrage : Velours",
+        "dimensions": {
+          "largeur": 61,
+          "hauteur": 84,
+          "profondeur": 61
+        },
+        "materials": [
+          "Velours",
+          "Métal"
+        ],
+        "colors": [
+          {
+            "name": "Doré doux",
+            "hex": "#C5A46D"
+          },
+          {
+            "name": "Sable",
+            "hex": "#E7DED1"
+          }
+        ],
+        "images": [
+          "/produits/chaise-velours-or/1.webp",
+          "/produits/chaise-velours-or/2.webp",
+          "/produits/chaise-velours-or/3.webp",
+          "/produits/chaise-velours-or/4.webp",
+          "/produits/chaise-velours-or/5.webp",
+          "/produits/chaise-velours-or/6.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": true,
+        "isNew": true
+      },
+      "fauteuil-frene": {
+        "id": "fauteuil-frene",
+        "slug": "fauteuil-frene",
+        "name": "Fauteuil Frêne",
+        "category": "chaises",
+        "price": 770,
+        "rentPerDay": 28,
+        "description": "2025 Minyu chaise de luxe haut de gamme en bois de frêne massif en ébène couleur personnalisée cadre en bois chaise de salle à manger rembourrée pour bureau à domicile.",
+        "details": "Fiche publiée : 2025 Minyu chaise de luxe haut de gamme en bois de frêne massif en ébène couleur personnalisée cadre en bois chaise de salle à manger rembourrée pour bureau à domicile. Caractéristique : Durable Utilisation spécifique : Chaise de salle à manger Matériau : En bois Domaine dapplication : Bureau à la maison, Salon, Salle à manger Style de conception : Ferme Aspect visuel : Moderne Essence de bois : Bois massif, Bois massif Lieu dorigine : Shanghai, China Jambes : Bois Garantie : 3 ans Matériau de rembourrage : Velours Nom du produit : Chaise de salle à manger en bois Utilisation : Mobilier de salle à manger Style : Luxe Moderne Fonction : Salle à manger. Salon Couleur : Couleur personnalisée Mot-clé : Chaise de salle à manger hôtel luxe OEM : Bienvenue Cadre : 100 % bois massif Minimum de commande : 1 pièce Matériau principal : Bois massif + Velours",
+        "dimensions": {
+          "largeur": 62,
+          "hauteur": 86,
+          "profondeur": 64
+        },
+        "materials": [
+          "Bois massif",
+          "Velours"
+        ],
+        "colors": [
+          {
+            "name": "Noir",
+            "hex": "#171717"
+          },
+          {
+            "name": "Brun naturel",
+            "hex": "#8A6F55"
+          }
+        ],
+        "images": [
+          "/produits/fauteuil-frene/1.webp",
+          "/produits/fauteuil-frene/2.webp",
+          "/produits/fauteuil-frene/3.webp",
+          "/produits/fauteuil-frene/4.webp",
+          "/produits/fauteuil-frene/5.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "table-ronde-chene": {
+        "id": "table-ronde-chene",
+        "slug": "table-ronde-chene",
+        "name": "Table Ronde Chêne",
+        "category": "tables",
+        "price": 2370,
+        "rentPerDay": 68,
+        "description": "Table à manger ronde en chêne massif de style industriel moderne et luxueux pour 4 personnes, meubles pour la maison.",
+        "details": "Fiche publiée : Table à manger ronde en chêne massif de style industriel moderne et luxueux pour 4 personnes, meubles pour la maison. Caractéristique : Imperméable, Durable, Fait main Usage spécifique : Table à manger Matériau : En bois Domaine dapplication : Salle à manger, Appartement, Ferme, Villa Style de conception : Moderne Aspect visuel : Moderne Essence de bois : Bois massif, Bois massif Lieu dorigine : Shanghai, China Forme : Rond Jambes : Bois Matériel : Chêne Nom du produit : Ensemble de meubles de salle à manger - Table de salle à manger Couleur : Couleur personnalisée Matériau principal : Bois Soli Quantité minimale de commande : 1 pièce Délai de livraison : 15-25 jours Emballage : Caisse en bois Garantie : 3 ans",
+        "dimensions": {
+          "largeur": 152,
+          "hauteur": 76,
+          "profondeur": 152
+        },
+        "materials": [
+          "Chêne massif"
+        ],
+        "colors": [
+          {
+            "name": "Chêne clair",
+            "hex": "#C4A574"
+          }
+        ],
+        "images": [
+          "/produits/table-ronde-chene/1.webp",
+          "/produits/table-ronde-chene/2.webp",
+          "/produits/table-ronde-chene/3.webp",
+          "/produits/table-ronde-chene/4.webp",
+          "/produits/table-ronde-chene/5.webp",
+          "/produits/table-ronde-chene/6.webp"
+        ],
+        "availability": "en_stock",
+        "stock": 2,
+        "popular": true,
+        "isNew": true
+      },
+      "tabouret-comptoir": {
+        "id": "tabouret-comptoir",
+        "slug": "tabouret-comptoir",
+        "name": "Tabouret Comptoir",
+        "category": "tabourets",
+        "price": 310,
+        "rentPerDay": 8,
+        "description": "Tabourets de bar commerciaux modernes de luxe à hauteur de comptoir, avec cadre en bois massif, dossier ergonomique stable, écologiques, pour salon et centre commercial.",
+        "details": "Fiche publiée : Tabourets de bar commerciaux modernes de luxe à hauteur de comptoir, avec cadre en bois massif, dossier ergonomique stable, écologiques, pour salon et centre commercial. Usage spécifique : Tabouret de bar Matériau : Bois Domaine dapplication : Bureau à la maison, Salon, Chambre, Salle à manger, Extérieur, Hôtel, Appartement, Immeuble de bureaux, Center commercial, Supermarché, Entrepôt, Atelier, Cour Style de conception : Moderne Aspect visuel : Moderne Essence de bois : Bois massif Lieu dorigine : Zhejiang, China Dispositif : Écologique, Durable, Résistant à l'eau, Poids léger, Stable Base : Base en métal Accoudoir : Accoudoir de liaison Matériel de la monture : Bois",
+        "dimensions": {
+          "largeur": 45,
+          "hauteur": 95,
+          "profondeur": 48
+        },
+        "materials": [
+          "Bouclé",
+          "Bois"
+        ],
+        "colors": [
+          {
+            "name": "Écru",
+            "hex": "#F3EDE3"
+          },
+          {
+            "name": "Sable",
+            "hex": "#E7DED1"
+          }
+        ],
+        "images": [
+          "/produits/tabouret-comptoir/1.webp",
+          "/produits/tabouret-comptoir/2.webp",
+          "/produits/tabouret-comptoir/3.webp",
+          "/produits/tabouret-comptoir/4.webp",
+          "/produits/tabouret-comptoir/5.webp",
+          "/produits/tabouret-comptoir/6.webp"
+        ],
+        "availability": "en_stock",
+        "stock": 6,
+        "popular": true,
+        "isNew": true
+      },
+      "lit-coffre": {
+        "id": "lit-coffre",
+        "slug": "lit-coffre",
+        "name": "Lit Coffre",
+        "category": "lits",
+        "price": 570,
+        "rentPerDay": 18,
+        "description": "Cadre de lit de rangement relevable en tissu bouclé Teddy, tailles Queen et King, personnalisable, mobilier de chambre OEM, vente en gros.",
+        "details": "Fiche publiée : Cadre de lit de rangement relevable en tissu bouclé Teddy, tailles Queen et King, personnalisable, mobilier de chambre OEM, vente en gros. Style de conception : Italien Caractéristique : Réglable, Écologique, Durable, stockage, Rembourré, Confortable, Lit de rangement, LUXUEUX Lieu dorigine : Hebei, China Revêtement : Velvet/Fabric/Chenille Taille du lit : Pleine, Tailles spéciales, Plein XL, JUMEAU, Roi californie, Double XL, KING, Reine Type de cadre de lit : Réglable, Printemps boîte mattress size : 160*190/140*190/80*190CM support frame : metal/Wood/sponge/OEM fabric : PU/Velluto/Bacos/chenille design : customeraizable other size : customeraizable Bed Size : Customized",
+        "dimensions": {
+          "largeur": 160,
+          "hauteur": 120,
+          "profondeur": 200
+        },
+        "materials": [
+          "Tissu",
+          "Bois"
+        ],
+        "colors": [
+          {
+            "name": "Sable",
+            "hex": "#E7DED1"
+          },
+          {
+            "name": "Écru",
+            "hex": "#F3EDE3"
+          }
+        ],
+        "images": [
+          "/produits/lit-coffre/1.webp",
+          "/produits/lit-coffre/2.webp",
+          "/produits/lit-coffre/3.webp",
+          "/produits/lit-coffre/4.webp",
+          "/produits/lit-coffre/5.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "lit-boucle": {
+        "id": "lit-boucle",
+        "slug": "lit-boucle",
+        "name": "Lit Bouclé",
+        "category": "lits",
+        "price": 1260,
+        "rentPerDay": 32,
+        "description": "Tête de lit moderne Queen/King Size Boucle rembourrée en bois massif Cadre de lit populaire en mousse haute densité Meubles de chambre à coucher Double taille.",
+        "details": "Fiche publiée : Tête de lit moderne Queen/King Size Boucle rembourrée en bois massif Cadre de lit populaire en mousse haute densité Meubles de chambre à coucher Double taille. Caractéristique : Personnalisé Usage spécifique : Ensemble de chambre à coucher Matériau : Bois Domaine dapplication : Chambre Style de conception : Moderne Aspect visuel : Moderne Lieu dorigine : Binh Duong, Vietnam",
+        "dimensions": {
+          "largeur": 160,
+          "hauteur": 125,
+          "profondeur": 210
+        },
+        "materials": [
+          "Bouclé",
+          "Bois massif"
+        ],
+        "colors": [
+          {
+            "name": "Écru",
+            "hex": "#F3EDE3"
+          },
+          {
+            "name": "Brun naturel",
+            "hex": "#8A6F55"
+          }
+        ],
+        "images": [
+          "/produits/lit-boucle/1.webp",
+          "/produits/lit-boucle/2.webp",
+          "/produits/lit-boucle/3.webp",
+          "/produits/lit-boucle/4.webp",
+          "/produits/lit-boucle/5.webp",
+          "/produits/lit-boucle/6.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": true,
+        "isNew": true
+      },
+      "chaise-cordage": {
+        "id": "chaise-cordage",
+        "slug": "chaise-cordage",
+        "name": "Chaise Cordage",
+        "category": "chaises",
+        "price": 250,
+        "rentPerDay": 0,
+        "description": "Chaise en bois clair, dossier en arc, assise en cordage.",
+        "details": "Fiche publiée : Chaise de salle à manger en bois massif de style nordique japonais moderne. Bois massif, assise en cordage. Dimensions indiquées sur la photo : 55 × 78 × 49 cm.",
+        "dimensions": {
+          "largeur": 55,
+          "hauteur": 78,
+          "profondeur": 49
+        },
+        "materials": [
+          "Bois massif",
+          "Cordage"
+        ],
+        "colors": [
+          {
+            "name": "Chêne clair",
+            "hex": "#C4A574"
+          }
+        ],
+        "images": [
+          "/produits/chaise-cordage/1.webp",
+          "/produits/chaise-cordage/2.webp",
+          "/produits/chaise-cordage/3.webp",
+          "/produits/chaise-cordage/4.webp",
+          "/produits/chaise-cordage/5.webp",
+          "/produits/chaise-cordage/6.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "chaise-boucle": {
+        "id": "chaise-boucle",
+        "slug": "chaise-boucle",
+        "name": "Chaise Bouclé",
+        "category": "chaises",
+        "price": 240,
+        "rentPerDay": 0,
+        "description": "Chaise en bois foncé, dossier et assise en bouclé écru.",
+        "details": "Fiche publiée : Chaise de salle à manger moderne scandinave, bois massif, revêtement bouclé. La fiche ne publie pas les dimensions.",
+        "dimensions": {
+          "largeur": 0,
+          "hauteur": 0,
+          "profondeur": 0
+        },
+        "materials": [
+          "Bouclé",
+          "Bois massif"
+        ],
+        "colors": [
+          {
+            "name": "Écru",
+            "hex": "#F3EDE3"
+          }
+        ],
+        "images": [
+          "/produits/chaise-boucle/1.webp",
+          "/produits/chaise-boucle/2.webp",
+          "/produits/chaise-boucle/3.webp",
+          "/produits/chaise-boucle/4.webp",
+          "/produits/chaise-boucle/5.webp",
+          "/produits/chaise-boucle/6.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "fauteuil-cannage": {
+        "id": "fauteuil-cannage",
+        "slug": "fauteuil-cannage",
+        "name": "Fauteuil Cannage",
+        "category": "chaises",
+        "price": 890,
+        "rentPerDay": 0,
+        "description": "Fauteuil en bois foncé, dossier en cannage, assise en cuir.",
+        "details": "Fiche publiée : Fauteuil de salle à manger en bois, dossier en cannage, assise en cuir. La fiche ne publie pas les dimensions.",
+        "dimensions": {
+          "largeur": 0,
+          "hauteur": 0,
+          "profondeur": 0
+        },
+        "materials": [
+          "Bois massif",
+          "Cannage",
+          "Cuir"
+        ],
+        "colors": [
+          {
+            "name": "Brun naturel",
+            "hex": "#8A6F55"
+          }
+        ],
+        "images": [
+          "/produits/fauteuil-cannage/1.webp",
+          "/produits/fauteuil-cannage/2.webp",
+          "/produits/fauteuil-cannage/3.webp",
+          "/produits/fauteuil-cannage/4.webp",
+          "/produits/fauteuil-cannage/5.webp",
+          "/produits/fauteuil-cannage/6.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "table-travertin": {
+        "id": "table-travertin",
+        "slug": "table-travertin",
+        "name": "Table Travertin",
+        "category": "tables",
+        "price": 2590,
+        "rentPerDay": 0,
+        "description": "Table basse en travertin beige, 140 × 76 cm, hauteur 38 cm.",
+        "details": "Fiche publiée : Table basse en travertin massif, couleur beige veinée. Taille publiée : 140 × 76 × 38 cm.",
+        "dimensions": {
+          "largeur": 140,
+          "hauteur": 38,
+          "profondeur": 76
+        },
+        "materials": [
+          "Travertin"
+        ],
+        "colors": [
+          {
+            "name": "Sable",
+            "hex": "#E7DED1"
+          }
+        ],
+        "images": [
+          "/produits/table-travertin/1.webp",
+          "/produits/table-travertin/2.webp",
+          "/produits/table-travertin/3.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "tabouret-bois": {
+        "id": "tabouret-bois",
+        "slug": "tabouret-bois",
+        "name": "Tabouret Bois",
+        "category": "tabourets",
+        "price": 320,
+        "rentPerDay": 0,
+        "description": "Tabouret de comptoir en bois foncé, dossier et assise en tissu clair.",
+        "details": "Fiche publiée : Tabouret de bar en bois massif, revêtement clair. Taille publiée : 52 × 56 × 96 cm.",
+        "dimensions": {
+          "largeur": 52,
+          "hauteur": 96,
+          "profondeur": 56
+        },
+        "materials": [
+          "Bois massif",
+          "Tissu"
+        ],
+        "colors": [
+          {
+            "name": "Écru",
+            "hex": "#F3EDE3"
+          }
+        ],
+        "images": [
+          "/produits/tabouret-bois/1.webp",
+          "/produits/tabouret-bois/2.webp",
+          "/produits/tabouret-bois/3.webp",
+          "/produits/tabouret-bois/4.webp",
+          "/produits/tabouret-bois/5.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "table-allonge": {
+        "id": "table-allonge",
+        "slug": "table-allonge",
+        "name": "Table Allonge",
+        "category": "tables",
+        "price": 960,
+        "rentPerDay": 0,
+        "description": "Table à manger en chêne clair, allonge de 160 à 200 cm.",
+        "details": "Fiche publiée : Table rectangulaire extensible en chêne, pour 6 à 10 personnes. Longueur 160 à 200 cm, largeur 90 cm, hauteur 75 cm.",
+        "dimensions": {
+          "largeur": 160,
+          "hauteur": 75,
+          "profondeur": 90
+        },
+        "materials": [
+          "Chêne massif"
+        ],
+        "colors": [
+          {
+            "name": "Chêne clair",
+            "hex": "#C4A574"
+          }
+        ],
+        "images": [
+          "/produits/table-allonge/1.webp",
+          "/produits/table-allonge/2.webp",
+          "/produits/table-allonge/3.webp",
+          "/produits/table-allonge/4.webp",
+          "/produits/table-allonge/5.webp",
+          "/produits/table-allonge/6.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "fauteuil-boucle": {
+        "id": "fauteuil-boucle",
+        "slug": "fauteuil-boucle",
+        "name": "Fauteuil Bouclé",
+        "category": "chaises",
+        "price": 780,
+        "rentPerDay": 0,
+        "description": "Fauteuil bas en bouclé écru, accoudoirs ronds.",
+        "details": "Fiche publiée : Fauteuil une place en bouclé. Dimensions publiées : 81 × 80 cm, hauteur 71 cm.",
+        "dimensions": {
+          "largeur": 81,
+          "hauteur": 71,
+          "profondeur": 80
+        },
+        "materials": [
+          "Bouclé"
+        ],
+        "colors": [
+          {
+            "name": "Écru",
+            "hex": "#F3EDE3"
+          }
+        ],
+        "images": [
+          "/produits/fauteuil-boucle/1.webp",
+          "/produits/fauteuil-boucle/2.webp",
+          "/produits/fauteuil-boucle/3.webp",
+          "/produits/fauteuil-boucle/4.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      },
+      "table-rectangle": {
+        "id": "table-rectangle",
+        "slug": "table-rectangle",
+        "name": "Table Rectangulaire",
+        "category": "tables",
+        "price": 930,
+        "rentPerDay": 0,
+        "description": "Table à manger rectangulaire en bois, 160 × 80 cm, pour 6 à 8 personnes.",
+        "details": "Fiche publiée : Table rectangulaire en bois, piètement en portique. Dimensions publiées : 160 × 80 cm, hauteur 75 cm.",
+        "dimensions": {
+          "largeur": 160,
+          "hauteur": 75,
+          "profondeur": 80
+        },
+        "materials": [
+          "Bois"
+        ],
+        "colors": [
+          {
+            "name": "Brun naturel",
+            "hex": "#8A6F55"
+          }
+        ],
+        "images": [
+          "/produits/table-rectangle/1.webp",
+          "/produits/table-rectangle/2.webp",
+          "/produits/table-rectangle/3.webp",
+          "/produits/table-rectangle/4.webp",
+          "/produits/table-rectangle/5.webp",
+          "/produits/table-rectangle/6.webp"
+        ],
+        "availability": "sur_commande",
+        "stock": 0,
+        "popular": false,
+        "isNew": true
+      }
+    },
+    "categories": {
+      "chaises": {
+        "id": "chaises",
+        "name": "Chaises",
+        "tagline": "Autour de la table, près de la fenêtre.",
+        "description": "Des assises dessinées pour durer, du repas du soir au fauteuil de lecture.",
+        "image": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1800&q=80"
+      },
+      "tables": {
+        "id": "tables",
+        "name": "Tables",
+        "tagline": "Le cœur de la pièce.",
+        "description": "Tables à manger, consoles et tables basses, en bois, pierre et laiton.",
+        "image": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=1800&q=80"
+      },
+      "tabourets": {
+        "id": "tabourets",
+        "name": "Tabourets",
+        "tagline": "Un siège de plus, sans encombrer.",
+        "description": "Pour l'îlot, le comptoir, le salon. À emporter aussi le temps d'un événement.",
+        "image": "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1800&q=80"
+      },
+      "lits": {
+        "id": "lits",
+        "name": "Lits",
+        "tagline": "Des chambres qui respirent.",
+        "description": "Têtes arrondies, lin, bois clair. Des lits pensés pour le repos, pas pour l'effet.",
+        "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80"
+      }
+    },
+    "reviews": {
+      "avi_lea": {
+        "id": "avi_lea",
+        "productId": "",
+        "author": "Léa",
+        "city": "Lyon",
+        "rating": 5,
+        "text": "Enfin une maison qui parle simplement de beaux meubles, sans en faire trop.",
+        "status": "publie",
+        "createdAt": "2026-09-20T10:00:00.000Z"
+      }
+    },
+    "offers": {
+      "pro_maison": {
+        "id": "pro_maison",
+        "label": "Pour les projets de la maison",
+        "percent": 10
+      }
+    }
+  },
+  "atelier": {
+    "sources": {
+      "chaise-velours-or": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Modern-Velvet-Dining-Chair-Upholstered-Cushion_1601578079560.html",
+        "wholesale": "57,51 €, minimum 2 pièces",
+        "purchase": 57.51,
+        "transport": 65,
+        "productId": "1601578079560",
+        "moq": 2
+      },
+      "fauteuil-frene": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/2025-Minyu-Luxury-High-End-Solid_1601430887232.html",
+        "wholesale": "197,72 €, minimum 2 pièces",
+        "purchase": 197.72,
+        "transport": 95,
+        "productId": "1601430887232",
+        "moq": 2
+      },
+      "table-ronde-chene": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Modern-Industrial-Luxury-Solid-Oak-Wood_1601712144978.html",
+        "wholesale": "674,03 à 718,96 €, minimum 1 pièce",
+        "purchase": 718.96,
+        "transport": 180,
+        "productId": "1601712144978",
+        "moq": 1
+      },
+      "tabouret-comptoir": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.co.uk/product-detail/Boucle-Luxury-Counter-Height-Commercial-Bar_1601769201590.html",
+        "wholesale": "56,62 €, minimum 2 pièces",
+        "purchase": 56.62,
+        "transport": 60,
+        "productId": "1601769201590",
+        "moq": 2
+      },
+      "lit-coffre": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.co.uk/product-detail/Factory-Wholesale-Italian-Design-Adjustable-Storage_1601662533228.html",
+        "wholesale": "77,29 €, minimum 10 couchages",
+        "purchase": 77.29,
+        "transport": 140,
+        "productId": "1601662533228",
+        "moq": 10
+      },
+      "lit-boucle": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.co.uk/product-detail/Modern-Queen-King-Size-Boucle-Upholstered_10000022134369.html",
+        "wholesale": "196,82 à 268,72 €, minimum 10 couchages",
+        "purchase": 268.72,
+        "transport": 210,
+        "productId": "10000022134369",
+        "moq": 10
+      },
+      "chaise-cordage": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Solid-Wood-Modern-Nordic-Japanese-Style_1601611516654.html",
+        "wholesale": "28,80 €, minimum 2 pièces",
+        "purchase": 28.8,
+        "transport": 65,
+        "productId": "1601611516654",
+        "moq": 2
+      },
+      "chaise-boucle": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Dinning-Chair-Modern-Scandinavian-Contemporary-Upholstered_1601339154022.html",
+        "wholesale": "27 €, minimum 2 pièces",
+        "purchase": 27,
+        "transport": 65,
+        "productId": "1601339154022",
+        "moq": 2
+      },
+      "fauteuil-cannage": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Modern-Solid-Oak-Dining-Chair-Curved_1601930866058.html",
+        "wholesale": "242,05 € la pièce",
+        "purchase": 242.05,
+        "transport": 95,
+        "productId": "1601930866058",
+        "moq": 1
+      },
+      "table-travertin": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Beautiful-Natural-Solid-Travertine-Table-Placed_1601184840281.html",
+        "wholesale": "800,84 €, minimum 1 pièce",
+        "purchase": 800.84,
+        "transport": 180,
+        "productId": "1601184840281",
+        "moq": 1
+      },
+      "tabouret-bois": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Modern-Solid-Wood-Bar-Stool-with_10000045183877.html",
+        "wholesale": "62,99 €, minimum 4 pièces",
+        "purchase": 62.99,
+        "transport": 60,
+        "productId": "10000045183877",
+        "moq": 4
+      },
+      "table-allonge": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Modern-Rectangle-Extendable-Dining-Table-for_1601778403587.html",
+        "wholesale": "183,57 €, minimum 1 pièce",
+        "purchase": 183.57,
+        "transport": 180,
+        "productId": "1601778403587",
+        "moq": 1
+      },
+      "fauteuil-boucle": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/Modern-Nordic-Small-Teddy-Boucle-Single_1600856421208.html",
+        "wholesale": "199,76 €, minimum 2 pièces",
+        "purchase": 199.76,
+        "transport": 95,
+        "productId": "1600856421208",
+        "moq": 2
+      },
+      "table-rectangle": {
+        "marketplace": "Alibaba",
+        "url": "https://www.alibaba.com/product-detail/63-Inch-Rectangular-Wood-Table-Modern_11000031654743.html",
+        "wholesale": "173,55 €, minimum 1 pièce",
+        "purchase": 173.55,
+        "transport": 180,
+        "productId": "11000031654743",
+        "moq": 1
+      }
+    },
+    "promotions": {
+      "pro_maison": {
+        "id": "pro_maison",
+        "code": "MAISON10",
+        "label": "Pour les projets de la maison",
+        "percent": 10,
+        "active": true
+      }
+    },
+    "orders": {
+      "cmd_0c16c889": {
+        "id": "cmd_0c16c889",
+        "createdAt": "2026-10-07T19:40:24.851Z",
+        "email": "camille.bernard@exemple.fr",
+        "customer": {
+          "firstName": "Camille",
+          "lastName": "Bernard",
+          "email": "camille.bernard@exemple.fr",
+          "phone": "0600000000",
+          "company": ""
+        },
+        "items": {
+          "0": {
+            "productId": "chaise-alba",
+            "name": "Chaise Alba",
+            "color": "Écru",
+            "quantity": 1,
+            "unitPrice": 570,
+            "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=1800&q=80"
+          }
+        },
+        "delivery": {
+          "id": "adr_385c4cf0",
+          "label": "Maison",
+          "fullName": "Camille Bernard",
+          "line1": "12 rue des Ateliers",
+          "line2": "",
+          "postalCode": "33000",
+          "city": "Bordeaux",
+          "country": "France",
+          "phone": "0600000000"
+        },
+        "shipping": 49,
+        "discount": 0,
+        "total": 619,
+        "status": "confirmee",
+        "note": "",
+        "shippingMethod": "Atelier, 5 à 10 jours",
+        "paymentLabel": "Carte ···· 4242"
+      },
+      "cmd_351c8e10": {
+        "id": "cmd_351c8e10",
+        "createdAt": "2026-10-07T18:34:46.446Z",
+        "email": "ines.martin@exemple.fr",
+        "customer": {
+          "firstName": "Inès",
+          "lastName": "Martin",
+          "email": "ines.martin@exemple.fr",
+          "phone": "06 12 00 00 11",
+          "company": ""
+        },
+        "items": {
+          "0": {
+            "productId": "chaise-alba",
+            "name": "Chaise Alba",
+            "color": "Écru",
+            "quantity": 1,
+            "unitPrice": 480,
+            "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=1800&q=80"
+          }
+        },
+        "delivery": {
+          "id": "adr_8d9afab7",
+          "label": "Maison",
+          "fullName": "Inès Martin",
+          "line1": "12 rue des Tilleuls",
+          "line2": "",
+          "postalCode": "33000",
+          "city": "Bordeaux",
+          "country": "France",
+          "phone": "06 12 00 00 11"
+        },
+        "shipping": 49,
+        "discount": 48,
+        "promoCode": "MAISON10",
+        "total": 481,
+        "status": "confirmee",
+        "note": ""
+      },
+      "cmd_demo_1": {
+        "id": "cmd_demo_1",
+        "createdAt": "2026-09-18T09:30:00.000Z",
+        "email": "camille.morel@exemple.fr",
+        "customer": {
+          "firstName": "Camille",
+          "lastName": "Morel",
+          "email": "camille.morel@exemple.fr",
+          "phone": "06 12 00 00 01",
+          "company": ""
+        },
+        "items": {
+          "0": {
+            "productId": "chaise-alba",
+            "name": "Chaise Alba",
+            "color": "Écru",
+            "quantity": 4,
+            "unitPrice": 480,
+            "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=1800&q=80"
+          }
+        },
+        "delivery": {
+          "country": "France",
+          "line2": "",
+          "id": "adr_camille",
+          "label": "Maison",
+          "fullName": "Camille Morel",
+          "line1": "18 rue des Acacias",
+          "postalCode": "33000",
+          "city": "Bordeaux",
+          "phone": "06 12 00 00 01"
+        },
+        "shipping": 0,
+        "discount": 0,
+        "total": 1920,
+        "status": "livree",
+        "note": "Livraison en fin de matinée si possible."
+      },
+      "cmd_demo_2": {
+        "id": "cmd_demo_2",
+        "createdAt": "2026-10-03T14:10:00.000Z",
+        "email": "julien.petit@exemple.fr",
+        "customer": {
+          "firstName": "Julien",
+          "lastName": "Petit",
+          "email": "julien.petit@exemple.fr",
+          "phone": "06 12 00 00 02",
+          "company": ""
+        },
+        "items": {
+          "0": {
+            "productId": "console-arche",
+            "name": "Console Arche",
+            "color": "Noyer",
+            "quantity": 1,
+            "unitPrice": 680,
+            "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=80"
+          }
+        },
+        "delivery": {
+          "country": "France",
+          "line2": "",
+          "id": "adr_julien",
+          "label": "Appartement",
+          "fullName": "Julien Petit",
+          "line1": "6 quai Saint-Vincent",
+          "postalCode": "69001",
+          "city": "Lyon",
+          "phone": "06 12 00 00 02"
+        },
+        "shipping": 49,
+        "discount": 0,
+        "total": 729,
+        "status": "en_preparation",
+        "note": ""
+      }
+    },
+    "quotes": {
+      "dev_f7a6c611": {
+        "id": "dev_f7a6c611",
+        "createdAt": "2026-10-07T18:40:42.619Z",
+        "firstName": "Inès",
+        "lastName": "Martin",
+        "email": "ines.martin@exemple.fr",
+        "phone": "06 12 00 00 11",
+        "company": "",
+        "items": {
+          "0": {
+            "productId": "chaise-alba",
+            "name": "Chaise Alba",
+            "quantity": 4
+          }
+        },
+        "desiredDate": "",
+        "message": "Quatre chaises Alba pour une salle à manger.",
+        "address": "12 rue des Tilleuls, 33000 Bordeaux",
+        "status": "nouveau"
+      },
+      "dev_demo_1": {
+        "id": "dev_demo_1",
+        "createdAt": "2026-10-04T08:40:00.000Z",
+        "firstName": "Hélène",
+        "lastName": "Bernard",
+        "email": "studio.nord@exemple.fr",
+        "phone": "06 12 00 00 03",
+        "company": "Studio Nord",
+        "items": {
+          "0": {
+            "productId": "tabouret-oree",
+            "name": "Tabouret Orée",
+            "quantity": 12
+          },
+          "1": {
+            "productId": "table-atelier",
+            "name": "Table ronde Atelier",
+            "quantity": 3
+          }
+        },
+        "desiredDate": "2026-11-06",
+        "message": "Aménagement d'un espace d'accueil pour un salon professionnel de deux jours.",
+        "address": "Parc des expositions, 59000 Lille",
+        "status": "nouveau"
+      }
+    },
+    "rentals": {
+      "loc_dd24dccf": {
+        "id": "loc_dd24dccf",
+        "createdAt": "2026-10-07T18:34:46.562Z",
+        "email": "ines.martin@exemple.fr",
+        "customer": {
+          "firstName": "Inès",
+          "lastName": "Martin",
+          "email": "ines.martin@exemple.fr",
+          "phone": "06 12 00 00 11",
+          "company": ""
+        },
+        "items": {
+          "0": {
+            "productId": "chaise-alba",
+            "name": "Chaise Alba",
+            "color": "Écru",
+            "quantity": 1,
+            "unitPerDay": 18,
+            "days": 4,
+            "lineTotal": 72,
+            "start": "2026-10-20",
+            "end": "2026-10-23",
+            "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=1800&q=80"
+          }
+        },
+        "delivery": {
+          "id": "adr_8d9afab7",
+          "label": "Maison",
+          "fullName": "Inès Martin",
+          "line1": "12 rue des Tilleuls",
+          "line2": "",
+          "postalCode": "33000",
+          "city": "Bordeaux",
+          "country": "France",
+          "phone": "06 12 00 00 11"
+        },
+        "pickup": {
+          "id": "adr_8d9afab7",
+          "label": "Maison",
+          "fullName": "Inès Martin",
+          "line1": "12 rue des Tilleuls",
+          "line2": "",
+          "postalCode": "33000",
+          "city": "Bordeaux",
+          "country": "France",
+          "phone": "06 12 00 00 11"
+        },
+        "note": "",
+        "shipping": 79,
+        "total": 151,
+        "status": "confirmee"
+      },
+      "loc_demo_1": {
+        "id": "loc_demo_1",
+        "createdAt": "2026-09-25T11:00:00.000Z",
+        "email": "studio.nord@exemple.fr",
+        "customer": {
+          "firstName": "Hélène",
+          "lastName": "Bernard",
+          "email": "studio.nord@exemple.fr",
+          "phone": "06 12 00 00 03",
+          "company": "Studio Nord"
+        },
+        "items": {
+          "0": {
+            "productId": "table-horizon",
+            "name": "Table Horizon",
+            "color": "Chêne clair",
+            "quantity": 1,
+            "unitPerDay": 72,
+            "days": 3,
+            "lineTotal": 216,
+            "start": "2026-10-16",
+            "end": "2026-10-18",
+            "image": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=1800&q=80"
+          },
+          "1": {
+            "productId": "chaise-solene",
+            "name": "Chaise Solène",
+            "color": "Sable",
+            "quantity": 8,
+            "unitPerDay": 22,
+            "days": 3,
+            "lineTotal": 528,
+            "start": "2026-10-16",
+            "end": "2026-10-18",
+            "image": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1800&q=80"
+          }
+        },
+        "delivery": {
+          "country": "France",
+          "line2": "",
+          "id": "adr_nord",
+          "label": "Lieu",
+          "fullName": "Hélène Bernard",
+          "line1": "2 place du Marché",
+          "postalCode": "59000",
+          "city": "Lille",
+          "phone": "06 12 00 00 03"
+        },
+        "pickup": {
+          "country": "France",
+          "line2": "",
+          "id": "adr_nord_p",
+          "label": "Lieu",
+          "fullName": "Hélène Bernard",
+          "line1": "2 place du Marché",
+          "postalCode": "59000",
+          "city": "Lille",
+          "phone": "06 12 00 00 03"
+        },
+        "note": "Dîner professionnel, installation avant 16 h.",
+        "shipping": 79,
+        "total": 823,
+        "status": "confirmee"
+      }
+    },
+    "reservations": {
+      "res_demo_1": {
+        "id": "res_demo_1",
+        "createdAt": "2026-10-05T16:20:00.000Z",
+        "email": "camille.morel@exemple.fr",
+        "customerName": "Camille Morel",
+        "phone": "06 12 00 00 01",
+        "productId": "lit-alba",
+        "productName": "Lit Alba",
+        "quantity": 1,
+        "date": "2026-10-22",
+        "note": "Je souhaite voir le capitonnage sable avant de confirmer.",
+        "status": "demandee"
+      }
+    },
+    "reviews": {
+      "avi_lea": {
+        "id": "avi_lea",
+        "productId": "",
+        "author": "Léa",
+        "city": "Lyon",
+        "rating": 5,
+        "text": "Enfin une maison qui parle simplement de beaux meubles, sans en faire trop.",
+        "status": "publie",
+        "createdAt": "2026-09-20T10:00:00.000Z"
+      }
+    },
+    "contacts": {},
+    "newsletter": {}
+  }
+}

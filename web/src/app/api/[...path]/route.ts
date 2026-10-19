@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { accountFor, deriveClients, placePurchase, placeQuote, placeReview, saveContact, saveProduct, savePromotion } from "@/lib/commerce";
+import { getAlibabaProduct, alibabaStatus } from "@/lib/alibaba";
 import { publicCatalog, readDb, updateDb } from "@/lib/db";
 import { createSeed } from "@/lib/seed";
 import type { CategoryId, OrderStatus, Product, QuoteStatus, RentalStatus, ReservationStatus, ReviewStatus } from "@/lib/types";
@@ -59,6 +60,10 @@ export async function GET(request: NextRequest, context: { params: Promise<{ pat
       const db = readDb();
       return json({ ...db, clients: deriveClients(db) });
     }
+    if (key === "admin/alibaba") {
+      guardAdmin(request);
+      return json(alibabaStatus());
+    }
     return json({ error: "Introuvable." }, 404);
   } catch (error) {
     return fail(error);
@@ -73,7 +78,16 @@ export async function POST(request: NextRequest, context: { params: Promise<{ pa
     if (key === "admin/login") {
       return json({ ok: input.password === ADMIN_KEY });
     }
+    if (key === "admin/alibaba") {
+      guardAdmin(request);
+      const product = await getAlibabaProduct(String(input.productId ?? ""));
+      return json(product);
+    }
     if (key === "orders") {
+      const forbidden = ["cardNumber", "number", "pan", "cvc", "cvv", "expiry", "card"];
+      if (forbidden.some((field) => field in input)) {
+        return json({ error: "LUMA n'accepte pas le numéro complet de la carte." }, 400);
+      }
       const order = await updateDb((db) => placePurchase(db, input));
       return json(order, 201);
     }

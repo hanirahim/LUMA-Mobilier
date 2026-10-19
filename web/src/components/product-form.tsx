@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useStore } from "@/components/store";
 import { Button, Field, Select, TextArea } from "@/components/ui";
 import { availabilityLabel, categoryLabel, euroCents } from "@/lib/format";
-import { COST_MARGIN_RATE, COST_VAT_RATE, costBreakdown } from "@/lib/pricing";
+import { COST_MARGIN_RATE, COST_VAT_RATE, costBreakdown, retailFromCost } from "@/lib/pricing";
 import type { Availability, CategoryId, Product, ProductColor } from "@/lib/types";
 
 const blank = (): Product => ({
@@ -38,6 +38,36 @@ export function ProductForm({ id }: { id?: string }) {
 
   function patch(partial: Partial<Product>) {
     setForm((current) => ({ ...current, ...partial }));
+  }
+
+  function setSource(partial: Partial<NonNullable<Product["source"]>>) {
+    setForm((current) => ({
+      ...current,
+      source: {
+        marketplace: "Alibaba",
+        url: "",
+        wholesale: "",
+        ...current.source,
+        ...partial,
+      },
+    }));
+  }
+
+  function setCost(key: "purchase" | "transport", raw: string) {
+    const amount = raw === "" ? undefined : Number(raw);
+    setForm((current) => {
+      const source = {
+        marketplace: "Alibaba" as const,
+        url: "",
+        wholesale: "",
+        ...current.source,
+        [key]: amount,
+      };
+      const purchase = Number(source.purchase);
+      const transport = Number(source.transport);
+      const price = Number.isFinite(purchase) && Number.isFinite(transport) ? retailFromCost(purchase, transport) : current.price;
+      return { ...current, price, source };
+    });
   }
 
   function setColor(index: number, partial: Partial<ProductColor>) {
@@ -82,7 +112,16 @@ export function ProductForm({ id }: { id?: string }) {
             </option>
           ))}
         </Select>
-        <Field label="Prix (€)" className="[&_input]:font-medium [&_input]:text-red-700" type="number" min={0} value={form.price} onChange={(event) => patch({ price: Number(event.target.value) })} required />
+        <Field label="Prix de vente (€)" className="[&_input]:font-medium" type="number" min={0} value={form.price} onChange={(event) => patch({ price: Number(event.target.value) })} required />
+        <Field label="Lien Alibaba" className="sm:col-span-2" value={form.source?.url ?? ""} onChange={(event) => setSource({ url: event.target.value })} placeholder="https://www.alibaba.com/product-detail/…" />
+        <Field label="Fournisseur" value={form.source?.supplier?.name ?? ""} onChange={(event) => setSource({ supplier: { name: event.target.value, storeUrl: form.source?.supplier?.storeUrl, origin: form.source?.supplier?.origin } })} placeholder="Evergo Furniture" />
+        <Field label="Origine" value={form.source?.supplier?.origin ?? ""} onChange={(event) => setSource({ supplier: { name: form.source?.supplier?.name ?? "", storeUrl: form.source?.supplier?.storeUrl, origin: event.target.value } })} placeholder="Guangdong, Chine" />
+        <Field label="Boutique Alibaba" className="sm:col-span-2" value={form.source?.supplier?.storeUrl ?? ""} onChange={(event) => setSource({ supplier: { name: form.source?.supplier?.name ?? "", storeUrl: event.target.value, origin: form.source?.supplier?.origin } })} placeholder="https://evergofurniture.en.alibaba.com/" />
+        <Field label="Titre fournisseur" className="sm:col-span-2" value={form.source?.subject ?? ""} onChange={(event) => setSource({ subject: event.target.value })} />
+        <Field label="Prix d'achat (€)" className="[&_input]:font-medium [&_input]:text-red-700" type="number" min={0} step="0.01" value={form.source?.purchase ?? ""} onChange={(event) => setCost("purchase", event.target.value)} />
+        <Field label="Transport (€)" className="[&_input]:font-medium [&_input]:text-red-700" type="number" min={0} step="0.01" value={form.source?.transport ?? ""} onChange={(event) => setCost("transport", event.target.value)} />
+        <Field label="Minimum de commande" type="number" min={1} value={form.source?.moq ?? ""} onChange={(event) => setSource({ moq: Number(event.target.value) })} />
+        <Field label="Prix d'achat, tel que publié" value={form.source?.wholesale ?? ""} onChange={(event) => setSource({ wholesale: event.target.value })} />
         {form.source?.purchase != null && form.source.transport != null ? (
           <p className="sm:col-span-2 text-sm font-medium text-red-700">
             Prix d'achat {euroCents(form.source.purchase)} · transport {euroCents(form.source.transport)} · frais {euroCents(costBreakdown(form.source.purchase, form.source.transport).fees)} · marge {COST_MARGIN_RATE * 100} % · TVA {COST_VAT_RATE * 100} %

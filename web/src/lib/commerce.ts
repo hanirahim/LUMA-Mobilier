@@ -10,7 +10,7 @@ import type {
   Reservation,
   Review,
 } from "./types";
-import { configuredPrice, discountAmount, purchaseShipping } from "./pricing";
+import { configuredPrice, discountAmount, purchaseShipping, retailFromCost } from "./pricing";
 import { slugify, uid } from "./format";
 
 const text = (value: unknown, max = 2000) =>
@@ -20,6 +20,13 @@ function money(value: unknown) {
   const amount = Number(value);
   if (!Number.isFinite(amount) || amount < 0) return undefined;
   return Math.round(amount * 100) / 100;
+}
+
+function acceptedPayment(value: unknown) {
+  const label = text(value, 40);
+  if (label === "Virement") return "Virement";
+  if (/^Carte (Visa|Mastercard|American Express) ···· \d{4}$/.test(label)) return label;
+  throw new Error("Choisissez une carte ou un virement.");
 }
 
 function asProfile(input: Partial<Profile> | undefined): Profile {
@@ -203,7 +210,7 @@ export function placePurchase(
     status: "confirmee",
     note: text(input.note, 1000),
     shippingMethod: method === "express" ? "Express, 2 à 4 jours" : "Atelier, 5 à 10 jours",
-    paymentLabel: text(input.paymentLabel, 40) || "Paiement sécurisé",
+    paymentLabel: acceptedPayment(input.paymentLabel),
   };
   db.orders.unshift(order);
   return order;
@@ -325,6 +332,38 @@ export function saveContact(db: Database, input: { name?: string; email?: string
   return entry;
 }
 
+function alibabaSource(input: Product["source"]) {
+  const url = text(input?.url, 400);
+  if (!url) return undefined;
+  const idFromUrl = url.match(/_(\d+)\.html/)?.[1];
+  const productId = text(input?.productId, 24) || idFromUrl || "";
+  const subject = text(input?.subject, 240);
+  const moq = Math.round(Number(input?.moq));
+  const purchase = money(input?.purchase);
+  const transport = money(input?.transport);
+  const attributes = (input?.attributes ?? [])
+    .map((item) => ({ name: text(item.name, 80), value: text(item.value, 240) }))
+    .filter((item) => item.name && item.value)
+    .slice(0, 40);
+  const supplierName = text(input?.supplier?.name, 120);
+  const storeUrl = text(input?.supplier?.storeUrl, 400);
+  const origin = text(input?.supplier?.origin, 80);
+  return {
+    marketplace: "Alibaba" as const,
+    url,
+    ...(productId ? { productId } : {}),
+    ...(subject ? { subject } : {}),
+    ...(supplierName
+      ? { supplier: { name: supplierName, ...(storeUrl ? { storeUrl } : {}), ...(origin ? { origin } : {}) } }
+      : {}),
+    wholesale: text(input?.wholesale, 160),
+    ...(purchase !== undefined ? { purchase } : {}),
+    ...(transport !== undefined ? { transport } : {}),
+    ...(Number.isFinite(moq) && moq > 0 ? { moq } : {}),
+    ...(attributes.length ? { attributes } : {}),
+  };
+}
+
 export function saveProduct(db: Database, input: Product, id?: string) {
   const name = text(input.name, 80);
   if (!name) throw new Error("Le nom de la pièce est requis.");
@@ -350,15 +389,18 @@ export function saveProduct(db: Database, input: Product, id?: string) {
     slug = `${slug}-${currentId.slice(-4)}`;
   }
 
+  const source = alibabaSource(input.source);
+  const sellingPrice = source?.purchase != null && source.transport != null ? retailFromCost(source.purchase, source.transport) : price;
+
   const product: Product = {
     id: currentId,
     slug,
     name,
     category: input.category,
-    price,
+    price: sellingPrice,
     rentPerDay,
     description: text(input.description, 400),
-    details: text(input.details, 1200),
+    details: text(input.details, 4000),
     dimensions: {
       largeur: Math.max(0, Math.round(Number(input.dimensions?.largeur) || 0)),
       hauteur: Math.max(0, Math.round(Number(input.dimensions?.hauteur) || 0)),
@@ -371,17 +413,7 @@ export function saveProduct(db: Database, input: Product, id?: string) {
     stock,
     popular: Boolean(input.popular),
     isNew: Boolean(input.isNew),
-    ...(input.source?.url
-      ? {
-          source: {
-            marketplace: "Alibaba" as const,
-            url: text(input.source.url, 400),
-            wholesale: text(input.source.wholesale, 160),
-            ...(money(input.source.purchase) !== undefined ? { purchase: money(input.source.purchase) } : {}),
-            ...(money(input.source.transport) !== undefined ? { transport: money(input.source.transport) } : {}),
-          },
-        }
-      : {}),
+    ...(source ? { source } : {}),
   };
 
   const index = db.products.findIndex((item) => item.id === currentId);

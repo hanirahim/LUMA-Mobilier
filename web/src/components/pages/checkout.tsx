@@ -9,6 +9,49 @@ import type { Address, Order, Profile } from "@/lib/types";
 
 const steps = ["Panier", "Informations", "Adresse", "Livraison", "Paiement", "Confirmation"];
 
+function formatCard(value: string) {
+  return value.replace(/\D/g, "").slice(0, 16).replace(/(\d{4})(?=\d)/g, "$1 ").trim();
+}
+
+function formatExpiry(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 4);
+  if (digits.length <= 2) return digits;
+  return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+}
+
+function luhn(digits: string) {
+  let sum = 0;
+  let alternate = false;
+  for (let index = digits.length - 1; index >= 0; index -= 1) {
+    let digit = Number(digits[index]);
+    if (alternate) {
+      digit *= 2;
+      if (digit > 9) digit -= 9;
+    }
+    sum += digit;
+    alternate = !alternate;
+  }
+  return sum % 10 === 0;
+}
+
+function cardProblem(holder: string, number: string, expiry: string, cvc: string) {
+  if (holder.trim().length < 2) return "Indiquez le nom du titulaire.";
+  const digits = number.replace(/\D/g, "");
+  const amex = digits.startsWith("34") || digits.startsWith("37");
+  if ((amex && digits.length !== 15) || (!amex && digits.length !== 16) || !luhn(digits)) {
+    return "Ce numéro de carte n'est pas valide.";
+  }
+  const match = expiry.match(/^(\d{2})\/(\d{2})$/);
+  if (!match) return "Indiquez l'expiration au format MM/AA.";
+  const month = Number(match[1]);
+  const year = 2000 + Number(match[2]);
+  const now = new Date();
+  const expired = year < now.getFullYear() || (year === now.getFullYear() && month < now.getMonth() + 1);
+  if (month < 1 || month > 12 || expired) return "Cette carte est expirée.";
+  if ((amex && cvc.length !== 4) || (!amex && cvc.length !== 3)) return "Le cryptogramme n'est pas valide.";
+  return "";
+}
+
 const emptyAddress = (): Address => ({
   id: uid("adr"),
   label: "Maison",
@@ -32,7 +75,10 @@ export function CheckoutPage() {
   const [note, setNote] = useState("");
   const [promo, setPromo] = useState("");
   const [pay, setPay] = useState<"carte" | "virement">("carte");
-  const [last4, setLast4] = useState("");
+  const [holder, setHolder] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiry, setExpiry] = useState("");
+  const [cvc, setCvc] = useState("");
   const [accept, setAccept] = useState(false);
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
@@ -79,16 +125,27 @@ export function CheckoutPage() {
     return { ...delivery, fullName: delivery.fullName || `${customer.firstName} ${customer.lastName}`.trim(), phone: delivery.phone || customer.phone };
   }
 
+  function paymentLabel() {
+    if (pay === "virement") return "Virement";
+    const digits = cardNumber.replace(/\D/g, "");
+    const brand = digits.startsWith("34") || digits.startsWith("37") ? "American Express" : digits.startsWith("4") ? "Visa" : "Mastercard";
+    return `Carte ${brand} ···· ${digits.slice(-4)}`;
+  }
+
   async function confirm() {
     setError("");
-    if (pay === "carte" && !/^\d{4}$/.test(last4)) {
-      setError("Indiquez les 4 derniers chiffres, rien de plus.");
-      return;
+    if (pay === "carte") {
+      const problem = cardProblem(holder, cardNumber, expiry, cvc);
+      if (problem) {
+        setError(problem);
+        return;
+      }
     }
     if (!accept) {
       setError("Merci de confirmer les conditions.");
       return;
     }
+    const label = paymentLabel();
     setPending(true);
     try {
       const response = await fetch("/api/orders", {
@@ -100,7 +157,7 @@ export function CheckoutPage() {
           note,
           promoCode: promo,
           shippingMethod: method,
-          paymentLabel: pay === "virement" ? "Virement" : `Carte ···· ${last4}`,
+          paymentLabel: label,
           items: purchases.map((line) => ({
             productId: line.productId,
             quantity: line.quantity,
@@ -116,6 +173,9 @@ export function CheckoutPage() {
       saveProfile(customer);
       await refreshCatalog();
       await refreshAccount();
+      setCardNumber("");
+      setCvc("");
+      setExpiry("");
       setDone(data);
       setStep(5);
     } catch (caught) {
@@ -203,13 +263,34 @@ export function CheckoutPage() {
                 Carte bancaire
               </label>
               {pay === "carte" ? (
-                <Field label="4 derniers chiffres" inputMode="numeric" maxLength={4} value={last4} onChange={(event) => setLast4(event.target.value.replace(/\D/g, "").slice(0, 4))} />
+                <div className="grid gap-3 rounded-[1.5rem] border border-sand bg-white p-5 sm:grid-cols-2">
+                  <Field label="Titulaire" className="sm:col-span-2" autoComplete="cc-name" value={holder} onChange={(event) => setHolder(event.target.value)} />
+                  <Field
+                    label="Numéro de carte"
+                    className="sm:col-span-2"
+                    inputMode="numeric"
+                    autoComplete="cc-number"
+                    placeholder="•••• •••• •••• ••••"
+                    value={cardNumber}
+                    onChange={(event) => setCardNumber(formatCard(event.target.value))}
+                  />
+                  <Field label="Expiration" inputMode="numeric" autoComplete="cc-exp" placeholder="MM/AA" maxLength={5} value={expiry} onChange={(event) => setExpiry(formatExpiry(event.target.value))} />
+                  <Field label="Cryptogramme" inputMode="numeric" autoComplete="cc-csc" maxLength={4} value={cvc} onChange={(event) => setCvc(event.target.value.replace(/\D/g, "").slice(0, 4))} />
+                </div>
               ) : null}
               <label className="flex items-center gap-3 text-sm">
                 <input type="radio" checked={pay === "virement"} onChange={() => setPay("virement")} />
                 Virement
               </label>
-              <p className="text-sm font-light text-ink/65">Le paiement est sécurisé. LUMA ne conserve jamais le numéro complet de la carte.</p>
+              {pay === "virement" ? (
+                <p className="text-sm font-light leading-relaxed text-ink/65">
+                  La commande est enregistrée. L'atelier envoie le RIB à {customer.email || "votre adresse e-mail"}. Le meuble part une fois le virement reçu.
+                </p>
+              ) : (
+                <p className="text-sm font-light leading-relaxed text-ink/65">
+                  Seuls les 4 derniers chiffres sont enregistrés. Le numéro complet et le cryptogramme ne quittent pas cette page.
+                </p>
+              )}
               <label className="flex items-start gap-3 text-sm">
                 <input type="checkbox" checked={accept} onChange={(event) => setAccept(event.target.checked)} />
                 <span>J'accepte les conditions de vente, la livraison et le délai indiqués.</span>
@@ -238,7 +319,7 @@ export function CheckoutPage() {
                 Continuer
               </Button>
             ) : (
-              <Button type="button" disabled={pending} onClick={() => void confirm()}>{pending ? "Envoi…" : "Confirmer la commande"}</Button>
+              <Button type="button" disabled={pending} onClick={() => void confirm()}>{pending ? "Paiement…" : pay === "carte" ? `Payer ${euro(subtotal + shipping)}` : "Confirmer le virement"}</Button>
             )}
           </div>
         </div>

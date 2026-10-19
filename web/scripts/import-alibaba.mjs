@@ -147,10 +147,18 @@ for (const [slug, urls] of pages) {
       report.push({ slug, url, error: String(error.message || error), photo: photos[index] });
     }
   }
+  const attributes = (product.productBasicProperties ?? [])
+    .map((attr) => ({ name: String(attr.attrName ?? "").trim(), value: String(attr.attrValue ?? "").trim() }))
+    .filter((attr) => attr.name && attr.value && !skip.has(attr.name));
+  const productId = String(product.productId ?? url.match(/_(\d+)\.html/)?.[1] ?? "");
+  const moq = Number(product.moq);
   report.push({
     slug,
     url,
+    productId,
     subject: product.subject,
+    moq: Number.isFinite(moq) && moq > 0 ? moq : undefined,
+    attributes,
     photos: local.length,
     remote: photos,
     local,
@@ -165,6 +173,16 @@ for (const item of report) {
   if (!product) continue;
   product.images = item.local;
   product.details = item.details;
+  product.source = {
+    ...(product.source ?? {}),
+    marketplace: "Alibaba",
+    url: item.url,
+    ...(item.productId ? { productId: item.productId } : {}),
+    ...(item.subject ? { subject: item.subject } : {}),
+    ...(item.moq ? { moq: item.moq } : {}),
+    ...(item.attributes?.length ? { attributes: item.attributes } : {}),
+    wholesale: product.source?.wholesale ?? "",
+  };
 }
 fs.writeFileSync(dbPath, JSON.stringify(db, null, 2));
 fs.writeFileSync(path.join(root, "data", "alibaba-fiches.json"), JSON.stringify(report, null, 2));

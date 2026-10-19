@@ -102,6 +102,55 @@ export function AdminHome() {
   if (!adminData) return null;
   const openQuotes = adminData.quotes.filter((quote) => quote.status === "nouveau" || quote.status === "en_cours").length;
   const low = adminData.products.filter((product) => product.availability === "en_stock" && product.stock <= 2);
+  const soldOrders = adminData.orders.filter((order) => order.status !== "annulee");
+  const sales = new Map<string, { quantity: number; revenue: number; orders: Set<string> }>();
+  for (const order of soldOrders) {
+    for (const item of order.items) {
+      const current = sales.get(item.productId) ?? { quantity: 0, revenue: 0, orders: new Set<string>() };
+      current.quantity += item.quantity;
+      current.revenue += item.unitPrice * item.quantity;
+      current.orders.add(order.id);
+      sales.set(item.productId, current);
+    }
+  }
+  const stats = adminData.products
+    .map((product) => {
+      const sold = sales.get(product.id);
+      return {
+        id: product.id,
+        name: product.name,
+        category: categoryLabel[product.category],
+        quantity: sold?.quantity ?? 0,
+        revenue: sold?.revenue ?? 0,
+        orders: sold?.orders.size ?? 0,
+        purchase: product.source?.purchase,
+        stock: product.stock,
+      };
+    });
+  const known = new Set(adminData.products.map((product) => product.id));
+  for (const [productId, sold] of sales) {
+    if (known.has(productId)) continue;
+    const name = soldOrders.flatMap((order) => order.items).find((item) => item.productId === productId)?.name ?? "Pièce retirée";
+    stats.push({
+      id: productId,
+      name,
+      category: "Retirée du catalogue",
+      quantity: sold.quantity,
+      revenue: sold.revenue,
+      orders: sold.orders.size,
+      purchase: undefined,
+      stock: null,
+    });
+  }
+  stats.sort((a, b) => b.revenue - a.revenue || a.name.localeCompare(b.name, "fr"));
+  const totals = stats.reduce(
+    (sum, row) => ({
+      quantity: sum.quantity + row.quantity,
+      revenue: sum.revenue + row.revenue,
+      purchase: sum.purchase + (row.purchase != null ? row.purchase * row.quantity : 0),
+    }),
+    { quantity: 0, revenue: 0, purchase: 0 },
+  );
   const cards = [
     ["Produits", adminData.products.length],
     ["Commandes", adminData.orders.length],
@@ -121,6 +170,52 @@ export function AdminHome() {
           </article>
         ))}
       </div>
+      <AlibabaLink />
+      <section className="mt-10">
+        <h2 className="font-serif text-3xl">Statistiques</h2>
+        <p className="mt-2 text-sm font-light text-ink/60">Ventes des commandes confirmées. Les commandes annulées ne sont pas comptées. Le total du prix d'achat est le coût des pièces vendues.</p>
+        <div className="mt-4 overflow-auto">
+          <table className="w-full min-w-[52rem] text-left text-sm">
+            <thead className="text-xs uppercase tracking-[0.14em] text-ink/45">
+              <tr>
+                <th className="py-3 font-normal">Pièce</th>
+                <th className="font-normal">Catégorie</th>
+                <th className="font-normal">Commandes</th>
+                <th className="font-normal">Vendues</th>
+                <th className="font-normal">Chiffre d'affaires</th>
+                <th className="font-normal">Prix d'achat</th>
+                <th className="font-normal">Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              {stats.map((row) => (
+                <tr key={row.id} className="border-t border-sand">
+                  <td className="py-3">{row.name}</td>
+                  <td>{row.category}</td>
+                  <td>{row.orders}</td>
+                  <td>{row.quantity}</td>
+                  <td>{euro(row.revenue)}</td>
+                  <td className={row.purchase != null ? "font-medium text-red-700" : "text-ink/35"}>
+                    {row.purchase != null ? euroCents(row.purchase) : "—"}
+                  </td>
+                  <td>{row.stock ?? "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr className="border-t border-sand font-medium">
+                <td className="py-3">Total</td>
+                <td />
+                <td>{soldOrders.length}</td>
+                <td>{totals.quantity}</td>
+                <td>{euro(totals.revenue)}</td>
+                <td className="text-red-700">{euroCents(totals.purchase)}</td>
+                <td />
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
       <section className="mt-10">
         <h2 className="font-serif text-3xl">Stocks bas</h2>
         {low.length === 0 ? <p className="mt-3 text-sm text-ink/60">Rien à signaler.</p> : (
@@ -152,6 +247,57 @@ export function AdminHome() {
   );
 }
 
+function AlibabaLink() {
+  const { adminFetch } = useStore();
+  const [status, setStatus] = useState<{ configured: boolean; authorized: boolean } | null>(null);
+  const [productId, setProductId] = useState("");
+  const [message, setMessage] = useState("");
+  const [pending, setPending] = useState(false);
+
+  useEffect(() => {
+    void adminFetch("/api/admin/alibaba")
+      .then((response) => response.json())
+      .then((data) => setStatus({ configured: Boolean(data.configured), authorized: Boolean(data.authorized) }));
+  }, [adminFetch]);
+
+  return (
+    <section className="mt-10 rounded-[1.2rem] border border-sand bg-white p-5">
+      <h2 className="font-serif text-3xl">Alibaba</h2>
+      <p className="mt-2 text-sm font-light text-ink/65">
+        {status == null
+          ? "Vérification de la connexion…"
+          : status.configured
+            ? status.authorized
+              ? "L'application est connectée et autorisée."
+              : "La clé est en place. Il manque ALIBABA_SESSION pour les fiches qui exigent une autorisation."
+            : "Ajoutez ALIBABA_APP_KEY et ALIBABA_APP_SECRET dans web/.env.local, puis redémarrez le site. Les clés se créent sur openapi.alibaba.com."}
+      </p>
+      <form
+        className="mt-4 flex flex-wrap items-end gap-3"
+        onSubmit={async (event) => {
+          event.preventDefault();
+          setPending(true);
+          setMessage("");
+          const response = await adminFetch("/api/admin/alibaba", {
+            method: "POST",
+            body: JSON.stringify({ productId }),
+          });
+          const data = await response.json();
+          setPending(false);
+          const subject = data.alibaba_icbu_product_get_response?.product?.subject;
+          setMessage(response.ok ? subject || "Fiche reçue." : data.error || "L'appel a échoué.");
+        }}
+      >
+        <Field label="Identifiant produit" value={productId} onChange={(event) => setProductId(event.target.value)} className="min-w-64" />
+        <Button type="submit" disabled={pending || !status?.configured}>
+          {pending ? "Lecture…" : "Lire la fiche"}
+        </Button>
+      </form>
+      {message ? <p className="mt-3 text-sm text-wood">{message}</p> : null}
+    </section>
+  );
+}
+
 export function AdminProducts() {
   const { adminData, adminFetch, refreshAdmin, refreshCatalog, toast } = useStore();
   const router = useRouter();
@@ -167,6 +313,7 @@ export function AdminProducts() {
           <thead className="text-xs uppercase tracking-[0.14em] text-ink/45">
             <tr>
               <th className="py-3 font-normal">Pièce</th>
+              <th className="font-normal">Fournisseur</th>
               <th className="font-normal">Catégorie</th>
               <th className="font-normal">Prix</th>
               <th className="font-normal">Prix d'achat</th>
@@ -179,6 +326,7 @@ export function AdminProducts() {
             {adminData.products.map((product) => (
               <tr key={product.id} className="border-t border-sand">
                 <td className="py-3">{product.name}</td>
+                <td>{product.source?.supplier?.name ?? "—"}</td>
                 <td>{categoryLabel[product.category]}</td>
                 <td className="font-medium text-red-700">{euro(product.price)}</td>
                 <td className={product.source?.purchase != null || product.source?.wholesale ? "font-medium text-red-700" : "text-ink/35"}>
