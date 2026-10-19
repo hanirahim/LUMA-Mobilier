@@ -32,7 +32,12 @@ export async function POST(request: NextRequest) {
     await verifyFirebaseConnection();
     const stored = await readAlibabaTokensEncrypted("preview_authorized_buyer");
     if (!stored?.access_token) return NextResponse.json({ ok: false, message: "Jeton Alibaba absent" }, { status: 404, headers });
-    return NextResponse.json({ ok: true, message: "Firebase accessible" }, { headers });
+    const expiryRaw = stored.expire_time;
+    const expiryNumber = typeof expiryRaw === "string" || typeof expiryRaw === "number" ? Number(expiryRaw) : NaN;
+    const expiryMs = Number.isFinite(expiryNumber) && expiryNumber > 0
+      ? (expiryNumber < 1e12 ? expiryNumber * 1000 : expiryNumber) : NaN;
+    const expiryStatus = !Number.isFinite(expiryMs) ? "unknown" : expiryMs > Date.now() ? "not_expired" : "expired";
+    return NextResponse.json({ ok: true, message: "Jeton Alibaba présent et déchiffrable", expiryStatus, refreshTokenPresent: Boolean(stored.refresh_token), apiConnectionVerified: false }, { headers });
   } catch {
     return NextResponse.json({ ok: false, message: "Firebase connection failed" }, { status: 503, headers });
   }
