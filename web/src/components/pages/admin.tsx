@@ -39,8 +39,8 @@ export function AdminFrame({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (admin) void refreshAdmin();
-  }, [admin, refreshAdmin]);
+    if (admin && pathname !== "/admin/firebase") void refreshAdmin().catch(() => setError("Les données de l’atelier sont indisponibles."));
+  }, [admin, pathname, refreshAdmin]);
 
   if (!admin) {
     return (
@@ -92,7 +92,7 @@ export function AdminFrame({ children }: { children: React.ReactNode }) {
         </nav>
       </aside>
       <div className="px-5 py-8 md:px-10">
-        {adminData ? children : <p className="font-serif text-3xl">Ouverture de l'atelier…</p>}
+        {pathname === "/admin/firebase" || adminData ? children : <div><p className="font-serif text-3xl">Ouverture de l’atelier…</p>{error && <p className="mt-4 text-sm text-red-700">{error}</p>}</div>}
       </div>
     </div>
   );
