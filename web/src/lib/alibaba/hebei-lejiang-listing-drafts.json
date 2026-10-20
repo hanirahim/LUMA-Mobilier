@@ -1,0 +1,420 @@
+{
+  "supplier": "Hebei Lejiang Furniture Corp., Ltd.",
+  "storefront": "https://cnlejiangfurniture.en.alibaba.com/fr_FR/company_profile.html",
+  "collectedAt": "2026-10-20",
+  "publishable": false,
+  "notes": "Public supplier listing data; incomplete technical details, image rights, inventory, delivery and unit sales must be verified.",
+  "products": [
+    {
+      "supplierProductId": "60558473094",
+      "title": "Porte-manteau en métal 8 crochets",
+      "originalCategory": "Porte-manteaux",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=60558473094",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 3.5,
+        "max": 4
+      },
+      "minimumOrderQuantity": 100,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "60562962287",
+      "title": "Porte-manteau sur pied 8 crochets",
+      "originalCategory": "Porte-manteaux",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=60562962287",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 3.5,
+        "max": 4
+      },
+      "minimumOrderQuantity": 100,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "60382254276",
+      "title": "Porte-manteau sur pied 9 crochets",
+      "originalCategory": "Porte-manteaux",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=60382254276",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 6.3,
+        "max": 7
+      },
+      "minimumOrderQuantity": 100,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "60557858502",
+      "title": "Porte-manteau en métal autoportant",
+      "originalCategory": "Porte-manteaux",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=60557858502",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 8.8,
+        "max": 9.4
+      },
+      "minimumOrderQuantity": 100,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601756117287",
+      "title": "Chaise de salle à manger effet cuir",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601756117287",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 8.6,
+        "max": 9.6
+      },
+      "minimumOrderQuantity": 2,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601756100511",
+      "title": "Chaise de salle à manger en velours capitonné",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601756100511",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 7.2,
+        "max": 8.2
+      },
+      "minimumOrderQuantity": 2,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601751806070",
+      "title": "Chaise de salle à manger en velours",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601751806070",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 9.2,
+        "max": 10.2
+      },
+      "minimumOrderQuantity": 2,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601295252306",
+      "title": "Chaise de repas en rotin et métal",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601295252306",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 12.5,
+        "max": 14.2
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601295184380",
+      "title": "Chaise en rotin avec pieds métal",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601295184380",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 18.7,
+        "max": 19.6
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601275125679",
+      "title": "Chaise de repas nordique en rotin",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601275125679",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 25.8,
+        "max": 27
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601274959985",
+      "title": "Chaise de salle à manger en rotin",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601274959985",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 24.8,
+        "max": 25.8
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "60641529634",
+      "title": "Tabouret de bar rembourré",
+      "originalCategory": "Tabourets",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=60641529634",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 22.3,
+        "max": 23.3
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601294997900",
+      "title": "Table basse en rotin et verre trempé",
+      "originalCategory": "Tables basses",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601294997900",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 38.3,
+        "max": 39.3
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601276588891",
+      "title": "Ensemble table à manger effet pierre",
+      "originalCategory": "Tables à manger",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601276588891",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 59,
+        "max": 61
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601292743924",
+      "title": "Chaise de salle à manger en velours gris",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601292743924",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 15.1,
+        "max": 16.1
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601292928680",
+      "title": "Chaise de salle à manger en velours bleu",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601292928680",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 7.6,
+        "max": 8
+      },
+      "minimumOrderQuantity": 99,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601294884786",
+      "title": "Chaise de salle à manger rembourrée",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601294884786",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": null,
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "60373952490",
+      "title": "Table basse en verre et métal",
+      "originalCategory": "Tables basses",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=60373952490",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 33,
+        "max": 35
+      },
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601214164956",
+      "title": "Chaise de repas en rotin avec coussin",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601214164956",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": null,
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    },
+    {
+      "supplierProductId": "1601214365727",
+      "title": "Chaise de repas rembourrée",
+      "originalCategory": "Chaises",
+      "supplierUrl": "https://www.alibaba.com/trade/search?SearchText=1601214365727",
+      "supplierCurrency": "USD",
+      "supplierPriceRange": null,
+      "minimumOrderQuantity": 50,
+      "status": "draft",
+      "images": [],
+      "description": null,
+      "attributes": {},
+      "variants": [],
+      "verification": {
+        "detailPageVerified": false,
+        "listingVerified": true
+      }
+    }
+  ]
+}
