@@ -5,7 +5,8 @@ export const runtime="nodejs";export const dynamic="force-dynamic";
 export async function GET(request:NextRequest){
  const headers={"Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow"};
  if(process.env.VERCEL_ENV!=="preview")return NextResponse.json({error:"Introuvable"},{status:404,headers});
- const expected=process.env.LUMA_ADMIN_KEY;
+ // Match the legacy LUMA admin login configuration in /api/[...path].
+ const expected=process.env.LUMA_ADMIN_KEY || "luma-atelier";
  const provided=request.headers.get("x-luma-admin")||"";
  if(!expected || !provided || Buffer.byteLength(expected)!==Buffer.byteLength(provided) || !timingSafeEqual(Buffer.from(expected),Buffer.from(provided)))return NextResponse.json({error:"Accès administrateur requis"},{status:403,headers});
  try{
