@@ -9,10 +9,9 @@ let queue: Promise<unknown> = Promise.resolve();
 
 export function readDb(): Database {
   if (!fs.existsSync(file)) {
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    const initial = createSeed();
-    fs.writeFileSync(file, JSON.stringify(initial, null, 2), "utf8");
-    return initial;
+    // Vercel functions have a read-only application filesystem.
+    // Serve demo catalogue without attempting to write during page rendering.
+    return createSeed();
   }
   const parsed = JSON.parse(fs.readFileSync(file, "utf8")) as Database;
   parsed.newsletter ??= [];
