@@ -6,7 +6,7 @@ type Data={connected:boolean;path:string;supplier:string;collectedAt?:string;imp
 export default function AdminFirebase(){
  const {admin,adminFetch}=useStore();
  const [data,setData]=useState<Data|null>(null);const [error,setError]=useState("");const [loading,setLoading]=useState(true);const [search,setSearch]=useState("");
- useEffect(()=>{if(!admin)return;let active=true;(async()=>{try{const r=await adminFetch("/api/admin/firebase",{cache:"no-store"});if(!r.ok)throw Error();const d=await r.json() as Data;if(active)setData(d);}catch{if(active)setError("Impossible de lire Firebase. Vérifiez la connexion et les autorisations administrateur.");}finally{if(active)setLoading(false);}})();return()=>{active=false};},[admin,adminFetch]);
+ useEffect(()=>{if(!admin)return;let active=true;(async()=>{try{const r=await adminFetch("/api/admin/firebase",{cache:"no-store"});if(!r.ok)throw Error(r.status===403?"Accès refusé : reconnectez-vous au compte administrateur LUMA.":r.status===503?"Firebase est inaccessible depuis le serveur LUMA.":"Erreur de lecture ("+r.status+").");const d=await r.json() as Data;if(active)setData(d);}catch(e){if(active)setError(e instanceof Error?e.message:"Impossible de lire Firebase.");}finally{if(active)setLoading(false);}})();return()=>{active=false};},[admin,adminFetch]);
  if(!admin)return null;
  const products=data?.products.filter(p=>(p.title+" "+p.supplierProductId+" "+p.originalCategory).toLowerCase().includes(search.toLowerCase()))||[];
  return <main><p className="text-xs uppercase tracking-[0.18em] text-wood">Administration · données de test</p><h1 className="mt-3 font-serif text-5xl">Firebase</h1>
