@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
           ? outer.result as Record<string, unknown> : null;
         const code = nested?.code ?? outer.code;
         const resultCode = nested?.result_code;
-        apiConnectionVerified = String(code) === "200" || String(resultCode) === "200";
+        apiConnectionVerified = String(code) === "0" || String(code) === "200" || String(resultCode) === "0" || String(resultCode) === "200" || outer.success === true || nested?.success === true;
         apiStatus = apiConnectionVerified ? "accepted" : "api_rejected";
       } else {
         apiStatus = "invalid_response";
