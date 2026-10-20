@@ -56,3 +56,33 @@ export async function exchangeAlibabaAuthorizationCode(code: string): Promise<Al
   }
   return data as AlibabaTokenResponse;
 }
+
+/** Refresh an Alibaba OAuth grant server-side without exposing token values. */
+export async function refreshAlibabaAccessToken(refreshToken: string): Promise<AlibabaTokenResponse> {
+  if (!refreshToken || refreshToken.length > 4096) throw new Error("Invalid Alibaba refresh token");
+  const appKey = process.env.ALIBABA_APP_KEY?.trim();
+  const appSecret = process.env.ALIBABA_APP_SECRET?.trim();
+  if (!appKey || !appSecret) throw new Error("Alibaba server credentials not configured");
+  const path = "/auth/token/refresh";
+  const params = buildAlibabaSignedParams(path, {
+    refresh_token: refreshToken,
+    simplify: "true",
+  }, { appKey, appSecret });
+  const response = await fetch(API_ORIGIN + "/rest" + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", Accept: "application/json" },
+    body: new URLSearchParams(params).toString(),
+    cache: "no-store", redirect: "error", signal: AbortSignal.timeout(10000),
+  });
+  if (!response.ok) throw new Error("Alibaba refresh HTTP error");
+  const raw = await response.text();
+  if (raw.length > MAX_RESPONSE_BYTES) throw new Error("Alibaba refresh response too large");
+  let payload: unknown;
+  try { payload = JSON.parse(raw); } catch { throw new Error("Invalid Alibaba refresh response"); }
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) throw new Error("Invalid Alibaba refresh response");
+  const data = payload as Record<string, unknown>;
+  if (typeof data.access_token !== "string" || !data.access_token) {
+    throw new Error("Alibaba refresh rejected");
+  }
+  return data as AlibabaTokenResponse;
+}
