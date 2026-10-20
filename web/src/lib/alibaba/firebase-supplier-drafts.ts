@@ -1,6 +1,7 @@
 import "server-only";
 import { createPrivateKey, sign } from "node:crypto";
 const path = "/supplier_drafts/dg_outdoor";
+const lejiangPath = "/supplier_drafts/hebei_lejiang";
 function settings() {
  const database = process.env.FIREBASE_DATABASE_URL;
  const email = process.env.FIREBASE_CLIENT_EMAIL;
@@ -32,6 +33,20 @@ export async function seedSupplierDraftsIfEmpty(data:unknown):Promise<"created"|
  const c=settings();const token=await bearer();
  const url=c.base+path+".json";
  const r=await fetch(url,{method:"PUT",headers:{Authorization:"Bearer "+token,"Content-Type":"application/json","If-Match":"null_etag"},body:JSON.stringify(data),cache:"no-store",signal:AbortSignal.timeout(15000)});
+ if(r.status===412)return "already_exists";
+ if(!r.ok)throw new Error("Firebase write failed");
+ return "created";
+}
+
+export async function readLejiangDrafts():Promise<unknown> {
+ const c=settings();const token=await bearer();
+ const r=await fetch(c.base+lejiangPath+".json",{headers:{Authorization:"Bearer "+token},cache:"no-store",signal:AbortSignal.timeout(10000)});
+ if(!r.ok)throw new Error("Firebase read failed");
+ return r.json();
+}
+export async function seedLejiangDraftsIfEmpty(data:unknown):Promise<"created"|"already_exists"> {
+ const c=settings();const token=await bearer();
+ const r=await fetch(c.base+lejiangPath+".json",{method:"PUT",headers:{Authorization:"Bearer "+token,"Content-Type":"application/json","If-Match":"null_etag"},body:JSON.stringify(data),cache:"no-store",signal:AbortSignal.timeout(15000)});
  if(r.status===412)return "already_exists";
  if(!r.ok)throw new Error("Firebase write failed");
  return "created";
