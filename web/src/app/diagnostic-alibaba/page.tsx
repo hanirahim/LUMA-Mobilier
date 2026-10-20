@@ -10,6 +10,8 @@ const labels: Record<string, string> = {
   invalid_response: "Réponse Alibaba inattendue.",
   request_failed: "La requête n'a pas abouti. Vérifier le jeton, la signature et les journaux serveur.",
   request_denied: "Test refusé par la protection de sécurité.",
+  refresh_unavailable: "Alibaba refuse le jeton actuel et aucun jeton de renouvellement n’est enregistré.",
+  refresh_failed: "Alibaba refuse le jeton actuel et le renouvellement automatique a échoué.",
 };
 export default function AlibabaDiagnosticPage() {
   const [loading, setLoading] = useState(false);
