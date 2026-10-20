@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { randomBytes, timingSafeEqual } from "node:crypto";
 import { searchAlibabaProductsPreview } from "@/lib/alibaba/client";
-import { readAlibabaTokensEncrypted } from "@/lib/alibaba/firebase-token-store";
+import { readAlibabaTokensEncrypted, saveAlibabaTokensEncrypted } from "@/lib/alibaba/firebase-token-store";
+import { refreshAlibabaAccessToken } from "@/lib/alibaba/token";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -35,7 +36,27 @@ export async function POST(request: NextRequest) {
   try {
     const stored = await readAlibabaTokensEncrypted("preview_authorized_buyer");
     if (!stored?.access_token) return NextResponse.json({ ok: false, status: "authorization_missing" }, { headers });
-    const result = await searchAlibabaProductsPreview("furniture");
+    let result = await searchAlibabaProductsPreview("furniture");
+    const initial = result && typeof result === "object" ? result as Record<string, unknown> : {};
+    const initialCode = initial.code ?? (initial.result && typeof initial.result === "object"
+      ? (initial.result as Record<string, unknown>).code : undefined);
+    let refreshed = false;
+    if (initialCode === "IllegalAccessToken") {
+      if (!stored.refresh_token) {
+        return NextResponse.json({ ok: false, status: "refresh_unavailable", code: "IllegalAccessToken" }, { headers });
+      }
+      try {
+        const renewed = await refreshAlibabaAccessToken(stored.refresh_token);
+        await saveAlibabaTokensEncrypted("preview_authorized_buyer", {
+          ...stored, ...renewed,
+          refresh_token: renewed.refresh_token || stored.refresh_token,
+        });
+        refreshed = true;
+        result = await searchAlibabaProductsPreview("furniture");
+      } catch {
+        return NextResponse.json({ ok: false, status: "refresh_failed", code: "IllegalAccessToken" }, { headers });
+      }
+    }
     if (!result || typeof result !== "object") return NextResponse.json({ ok: false, status: "invalid_response" }, { headers });
     const data = result as Record<string, unknown>;
     const nested = data.result && typeof data.result === "object" ? data.result as Record<string, unknown> : {};
@@ -53,7 +74,7 @@ export async function POST(request: NextRequest) {
       return /^[A-Za-z][A-Za-z0-9_.-]{0,31}$|^[0-9]{1,6}$/.test(candidate) ? candidate : null;
     };
     return NextResponse.json({ ok: success, status: success ? "accepted" : "api_rejected",
-      code: safeCode(code), detailCode: safeCode(innerCode) }, { headers });
+      code: safeCode(code), detailCode: safeCode(innerCode), refreshed }, { headers });
   } catch {
     return NextResponse.json({ ok: false, status: "request_failed" }, { headers });
   }
