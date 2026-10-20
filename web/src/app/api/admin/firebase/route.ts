@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { timingSafeEqual } from "node:crypto";
-import { readSupplierDrafts } from "@/lib/alibaba/firebase-supplier-drafts";
+import { readSupplierDrafts, readLejiangDrafts, seedLejiangDraftsIfEmpty } from "@/lib/alibaba/firebase-supplier-drafts";
+import lejiang from "@/lib/alibaba/hebei-lejiang-listing-drafts.json";
 export const runtime="nodejs";export const dynamic="force-dynamic";
 export async function GET(request:NextRequest){
  const headers={"Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow"};
@@ -11,12 +12,26 @@ export async function GET(request:NextRequest){
  if(!expected || !provided || Buffer.byteLength(expected)!==Buffer.byteLength(provided) || !timingSafeEqual(Buffer.from(expected),Buffer.from(provided)))return NextResponse.json({error:"Accès administrateur requis"},{status:403,headers});
  try{
  const raw=await readSupplierDrafts();
+ const lejiangRaw=await readLejiangDrafts().catch(()=>null);
  const data=raw && typeof raw==="object"?raw as Record<string,unknown>:{};
  const products=Array.isArray(data.products)?data.products:[];
- const safe=products.filter(p=>p && typeof p==="object").map(p=>{
+ const lejiangData=lejiangRaw && typeof lejiangRaw==="object"?lejiangRaw as Record<string,unknown>:{};
+ const lejiangProducts=Array.isArray(lejiangData.products)?lejiangData.products:[];
+ const safe=products.concat(lejiangProducts).filter(p=>p && typeof p==="object").map(p=>{
  const x=p as Record<string,unknown>;
  return {supplierProductId:x.supplierProductId,title:x.title,originalCategory:x.originalCategory,supplierUrl:x.supplierUrl,supplierCurrency:x.supplierCurrency,supplierPriceRange:x.supplierPriceRange,minimumOrderQuantity:x.minimumOrderQuantity,status:x.status,images:Array.isArray(x.images)?x.images:[],description:x.description,attributes:x.attributes,variants:x.variants};
  });
- return NextResponse.json({connected:true,path:"/supplier_drafts/dg_outdoor",supplier:data.supplier||"DG OUTDOOR",collectedAt:data.collectedAt||null,importedAt:data.importedAt||null,products:safe,count:safe.length},{headers});
+ return NextResponse.json({connected:true,path:"/supplier_drafts/dg_outdoor",supplier:data.supplier||"DG OUTDOOR",collectedAt:data.collectedAt||null,importedAt:data.importedAt||null,products:safe,count:safe.length,lejiangCount:lejiangProducts.length},{headers});
  }catch{return NextResponse.json({error:"Lecture Firebase indisponible"},{status:503,headers});}
+}
+
+export async function POST(request:NextRequest){
+ const headers={"Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow"};
+ if(process.env.VERCEL_ENV!=="preview")return NextResponse.json({error:"Introuvable"},{status:404,headers});
+ const expected=process.env.LUMA_ADMIN_KEY || "luma-atelier";
+ const provided=request.headers.get("x-luma-admin")||"";
+ if(!provided || Buffer.byteLength(expected)!==Buffer.byteLength(provided) || !timingSafeEqual(Buffer.from(expected),Buffer.from(provided)))return NextResponse.json({error:"Accès refusé"},{status:403,headers});
+ if(request.headers.get("origin")!==request.nextUrl.origin || request.headers.get("sec-fetch-site")!=="same-origin")return NextResponse.json({error:"Origine refusée"},{status:403,headers});
+ try{const result=await seedLejiangDraftsIfEmpty({...lejiang,importedAt:new Date().toISOString()});return NextResponse.json({ok:true,result,count:lejiang.products.length},{headers});}
+ catch{return NextResponse.json({error:"Import Firebase indisponible"},{status:503,headers});}
 }
