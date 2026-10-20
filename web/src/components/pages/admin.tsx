@@ -22,6 +22,7 @@ import type { Availability, OrderStatus, QuoteStatus, ReviewStatus } from "@/lib
 const nav = [
   ["Tableau de bord", "/admin"],
   ["Produits", "/admin/produits"],
+  ["Firebase", "/admin/firebase"],
   ["Catégories", "/admin/categories"],
   ["Stocks", "/admin/stocks"],
   ["Commandes", "/admin/commandes"],
