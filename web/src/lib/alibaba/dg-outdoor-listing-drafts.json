@@ -1,0 +1,469 @@
+{
+  "supplier": "DG OUTDOOR FURNITURE MANUFACTUR LTD",
+  "storefront": "https://expressgarden.en.alibaba.com/",
+  "collectedAt": "2026-10-20",
+  "publishable": false,
+  "notes": "Supplier listing metadata only; product detail images, dimensions, stock, variants, delivery and rights remain unverified. Never automatically publish or expose as sellable products.",
+  "products": [
+    {
+      "supplierProductId": "1601897944769",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Lightweight-Durable-Aluminum-Alloy_1601897944769.html",
+      "originalCategory": "Table & Chair",
+      "title": "Express Garden Lightweight Durable Aluminum Alloy Modern Stackable Waterproof UV-Resistant Easy Carry Outdoor Dining Chair Table",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 80,
+        "max": 97
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601890187112",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Lightweight-Aluminum-Alloy-Modern_1601890187112.html",
+      "originalCategory": "Table & Chair",
+      "title": "Express Garden Lightweight Aluminum Alloy Modern Stackable Waterproof UV-Resistant Outdoor Dining Chair Table Courtyard Hotel",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 80,
+        "max": 97
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601627236159",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Luxury-Modern-Aluminum-Eco_1601627236159.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Luxury Modern Aluminum Eco-Friendly Outdoor Sofa Set Park Hotel Villa Courtyard Use Teak Armrest Patio Couch",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 51,
+        "max": 429
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601796519408",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-5-Piece-Rattan-Aluminum_1601796519408.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden 5-Piece Rattan Aluminum Outdoor Sofa Set for Hotel Courtyard Farmhouse Villa Park Swimming Pool Furniture",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 164,
+        "max": 477
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601796653657",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Aluminum-Outdoor-Patio_1601796653657.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Aluminum Outdoor Patio Furniture Set Swimming Pool Furniture Waterproof Durable Hotel Park",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 132,
+        "max": 434
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601627129141",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Hotel-Portable-Outdoor_1601627129141.html",
+      "originalCategory": "Sun Lounger & Daybed",
+      "title": "Express Garden Modern Hotel Portable Outdoor Pool Sun Loungers Sunbed Rope Weaving Pool Furniture Swim Lounger Chair",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 359,
+        "max": 478
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601617661095",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Luxury-Aluminum-Rope_1601617661095.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Luxury Aluminum Rope Waterproof Cushion Outdoor Furniture Set for Hotel & Villa Patio Lounge Sofas",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 122,
+        "max": 422
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601630966049",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Luxury-Modern-Rattan-Outdoor_1601630966049.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Luxury Modern Rattan Outdoor Furniture Set Terrace Furniture Set Patio Lounge Sofas Waterproof Farmhouse Hotel",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 51,
+        "max": 378
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601629498552",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-5-Person-Aluminum_1601629498552.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern 5-Person Aluminum Outdoor Sofa Set Eco-Friendly Rust Proof Durable Waterproof Villa Farmhouse Terrace",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 177,
+        "max": 696
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601627026602",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Luxury-Aluminum-5_1601627026602.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Luxury Aluminum 5-Piece Outdoor Sofa Set Waterproof Eco-Friendly for Hotel Farmhouse Courtyard Park Use",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 117,
+        "max": 467
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601613094464",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Villa-Outdoor-Aluminum_1601613094464.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Villa Outdoor Aluminum Sofa Set with UV Resistant Rope for Hotel Courtyard & Park Use-5 Seater",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 101,
+        "max": 316
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601618933487",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-UV-Resistant-Rattan_1601618933487.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern UV-Resistant Rattan Aluminum Waterproof Outdoor Sofa Set 2-Seater for Hotel & Villa Courtyard Park",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 72,
+        "max": 257
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601629423687",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Aluminum-Outdoor-Sofa_1601629423687.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Aluminum Outdoor Sofa Set Eco-Friendly Rust Proof Waterproof Terrace Furniture Set Apartment Warehouse",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 146,
+        "max": 614
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601619447259",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-PE-Rattan-Portable-Adjustable_1601619447259.html",
+      "originalCategory": "Sun Lounger & Daybed",
+      "title": "Express Garden PE Rattan Portable Adjustable Outdoor Sun Lounger Chair-Durable Modern Design for Courtyard & Living Room Use",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 411,
+        "max": 548
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601621209577",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Lightweight-Aluminum-Alloy-Modern_1601621209577.html",
+      "originalCategory": "Table & Chair",
+      "title": "Express Garden Lightweight Aluminum Alloy Modern Stackable Waterproof Outdoor Dining Chair Table Set for Villa Hospital Park Use",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 69,
+        "max": 524
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601627572429",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Luxury-KD-Rattan_1601627572429.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Luxury KD Rattan Aluminum Waterproof Eco-Friendly Patio Couch Outdoor Furniture Set Lounge Sofas Villa",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 131,
+        "max": 422
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601619163950",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Modern-Aluminum-Waterproof-Durable-Eco-Friendly_1601619163950.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Modern Aluminum Waterproof Durable Eco-Friendly Outdoor Sofa Set Garden Villa Park Courtyard Patio Living Room 2-Seater Hotel",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 128,
+        "max": 190
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601806744290",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Villa-Aluminum-Outdoor_1601806744290.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Villa Aluminum Outdoor Sofa Set Eco-Friendly Waterproof Patio Furniture",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 96,
+        "max": 663
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601617310397",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Outdoor-Sofa-Set_1601617310397.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Outdoor Sofa Set Aluminum Patio Furniture Durable Waterproof Cushion Quick-Dry for Hotel & Park Use",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 177,
+        "max": 696
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    },
+    {
+      "supplierProductId": "1601629616821",
+      "supplierUrl": "https://www.alibaba.com/product-detail/Express-Garden-Modern-Aluminum-Outdoor-Sofa_1601629616821.html",
+      "originalCategory": "Garden Sofa",
+      "title": "Express Garden Modern Aluminum Outdoor Sofa Set Teak Armrest UV-Resistant PE Rattan Waterproof Quick-Dry Cushions 5-Piece for",
+      "description": null,
+      "images": [],
+      "attributes": {},
+      "variants": [],
+      "supplierCurrency": "USD",
+      "supplierPriceRange": {
+        "min": 111,
+        "max": 425
+      },
+      "minimumOrderQuantity": 10,
+      "status": "draft",
+      "verification": {
+        "source": "supplier product listing",
+        "detailPageVerified": false,
+        "imagesPending": true,
+        "listingImageAvailable": true
+      }
+    }
+  ]
+}
