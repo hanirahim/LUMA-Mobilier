@@ -39,6 +39,7 @@ export async function searchAlibabaProductsPreview(keyword: string): Promise<unk
   if (!appKey || !appSecret) throw new Error("Alibaba credentials missing");
   const path = "/eco/buyer/product/search";
   const params = buildAlibabaSignedParams(path, {
+    access_token: tokens.access_token,
     param0: JSON.stringify({
       keyword: keyword.trim(), size: 10, index: 1,
       shipToCountry: "FR", language: "fr", currency: "EUR",
@@ -48,7 +49,7 @@ export async function searchAlibabaProductsPreview(keyword: string): Promise<unk
   for (const [key, value] of Object.entries(params)) url.searchParams.set(key, value);
   const response = await fetch(url, {
     method: "GET",
-    headers: { access_token: tokens.access_token, Accept: "application/json" },
+    headers: { Accept: "application/json" },
     cache: "no-store", redirect: "error", signal: AbortSignal.timeout(10000),
   });
   if (!response.ok) throw new Error("Alibaba product search HTTP error");
