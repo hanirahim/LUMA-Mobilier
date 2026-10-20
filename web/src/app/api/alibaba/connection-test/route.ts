@@ -40,9 +40,20 @@ export async function POST(request: NextRequest) {
     const data = result as Record<string, unknown>;
     const nested = data.result && typeof data.result === "object" ? data.result as Record<string, unknown> : {};
     const code = nested.code ?? data.code;
-    const success = ["0", "200"].includes(String(code)) || nested.success === true || data.success === true;
+    const inner = nested.result && typeof nested.result === "object"
+      ? nested.result as Record<string, unknown> : {};
+    const innerCode = inner.code ?? nested.result_code ?? data.result_code;
+    const success = ["0", "200"].includes(String(code)) ||
+      ["0", "200"].includes(String(innerCode)) ||
+      nested.success === true || data.success === true;
+    // Only short, well-formed provider status codes are shown. Never echo
+    // arbitrary provider messages, product data, tokens or request identifiers.
+    const safeCode = (value: unknown) => {
+      const candidate = typeof value === "string" || typeof value === "number" ? String(value) : "";
+      return /^[A-Za-z][A-Za-z0-9_.-]{0,31}$|^[0-9]{1,6}$/.test(candidate) ? candidate : null;
+    };
     return NextResponse.json({ ok: success, status: success ? "accepted" : "api_rejected",
-      code: typeof code === "string" && /^[0-9]{1,4}$/.test(code) ? code : null }, { headers });
+      code: safeCode(code), detailCode: safeCode(innerCode) }, { headers });
   } catch {
     return NextResponse.json({ ok: false, status: "request_failed" }, { headers });
   }
