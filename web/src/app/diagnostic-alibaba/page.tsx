@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Result = { ok: boolean; status: string; code?: string | null };
+type Result = { ok: boolean; status: string; code?: string | null; detailCode?: string | null };
 const labels: Record<string, string> = {
   accepted: "Connexion acceptée : Alibaba a répondu avec succès.",
   api_rejected: "Alibaba a répondu, mais a refusé la requête. L'autorisation ou les paramètres doivent être vérifiés.",
@@ -41,6 +41,7 @@ export default function AlibabaDiagnosticPage() {
       {result && <section role="status" className="mt-8 rounded-lg border p-5">
         <p className="font-semibold">{labels[result.status] || "Résultat inconnu."}</p>
         {result.code && <p className="mt-2 text-sm">Code API : {result.code}</p>}
+        {result.detailCode && <p className="mt-2 text-sm">Code détail : {result.detailCode}</p>}
       </section>}
       <p className="mt-8 text-sm">Aucun jeton, mot de passe ou clé secrète n'est affiché ici.</p>
     </main>
